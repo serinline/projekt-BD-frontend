@@ -89,20 +89,20 @@ function DodajPasazera(props){
 
         <form onSubmit={handleSubmit}>
             <label htmlFor="imie">Imię: </label>
-            <input name="imie" type="text" value={imie} autoComplete="off"
+            <input id="imie" type="text" value={imie} autoComplete="off"
                  onChange={handleImieChange}/>
 
     
             <label htmlFor="nazwisko">Nazwisko: </label>
-            <input name="nazwisko" type="text" value={nazwisko} autoComplete="off"
+            <input id="nazwisko" type="text" value={nazwisko} autoComplete="off"
                  onChange={handleNazwiskoChange}/>
     
             <label htmlFor="pesel">Pesel:</label>
-            <input name="pesel" type="text" value={pesel} autoComplete="off"
+            <input id="pesel" type="text" value={pesel} autoComplete="off"
                  onChange={handlePeselChange}/>
 
             <label htmlFor="obywatelstwo">Obywatelstwo:</label>
-            <input name="obywatelstwo" type="text" value={obywatelstwo} autoComplete="off"
+            <input id="obywatelstwo" type="text" value={obywatelstwo} autoComplete="off"
                  onChange={handleObywatelstwoChange}/>
     
             <button>Potwierdź zapis</button>
