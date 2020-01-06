@@ -35,20 +35,21 @@ class Loty extends Component {
 
       return (
         <div className="Loty">
-          <ul>
+
             { loty.map(lot => (
-                <li key={lot.id_lot}>
-                    Wylot
-                    Lotnisko: { lot.lotnisko_wylot } 
-                    Data: { lot.wylot } 
+                <div key={lot.id_lot}>
+                  <div class="title0">Nr lotu:  { lot.id_lot }</div>
+                    <div class="title1">Wylot</div>
+                    <div class = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
+                    <div class = "title2">Data: { lot.wylot } </div>
 
-                    Przylot
-                    Lotnisko: { lot.lotnisko_przylot }
-                    Data: { lot.przylot }
+                    <div class="title1">Przylot</div>
+                    <div class = "title2">Lotnisko: { lot.lotnisko_przylot } </div>
+                    <div class = "title2">Data: { lot.przylot } </div>
 
-                </li>
+                </div>
             ))}
-          </ul>
+          
         </div>
       );
     }

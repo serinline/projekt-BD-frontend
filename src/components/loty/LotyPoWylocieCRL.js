@@ -1,33 +1,19 @@
 import React, {Component} from 'react'
 
-window.$miasto = ''
 
-class LotyPoWylocie extends Component {
+class LotyPoWylocieCRL extends Component {
     constructor(props) {
         super(props);
         this.state = {
             loty: [],
             isLoaded: false,
-            miasto: ''
           }
       }
 
-    // miastoWMI(){
-    //     miasto = 'WMI';
-    // }
-
-    // miastoCRL(){
-    //     miasto = 'CRL';
-    // }
-
-    // miastoLUZ(){
-    //     miasto = 'LUZ';
-    // }
 
 
     componentDidMount() {
-
-    var miasto = this.state;
+    var miasto = 'CRL';
 
     fetch(`http://localhost:8090/wylot/${miasto}`)
     .then(res => res.json()) //result
@@ -42,6 +28,7 @@ class LotyPoWylocie extends Component {
     
   
     render() {      
+
     var { isLoaded, loty } = this.state;
 
     if(!isLoaded){
@@ -53,19 +40,19 @@ class LotyPoWylocie extends Component {
               <div>
 
 
-                   <ul>
                     { loty.map(lot => (
-                        <li key={lot.id_lot}>
-                            Wylot
-                            Lotnisko: { lot.lotnisko_wylot } 
-                            Data: { lot.wylot } 
+                        <div key={lot.id_lot}>
+                            <div class="title0">Nr lotu:  { lot.id_lot }</div>
+                            <div class="title1">Wylot</div>
+                            <div class = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
+                            <div class = "title2">Data: { lot.wylot }  </div>
 
-                            Przylot
-                            Lotnisko: { lot.lotnisko_przylot }
-                            Data: { lot.przylot }
-                        </li>
+                            <div class="title1">Przylot</div>
+                            <div class = "title2">Lotnisko: { lot.lotnisko_przylot } </div>
+                            <div class = "title2">Data: { lot.przylot } </div>
+                        </div>
                     ))}
-                </ul>
+
               </div>
           );
       }
@@ -73,4 +60,4 @@ class LotyPoWylocie extends Component {
   
 }
 
-export default LotyPoWylocie;
+export default LotyPoWylocieCRL;
