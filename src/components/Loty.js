@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 
+
 class Loty extends Component {
 
   constructor(props){
@@ -37,9 +38,14 @@ class Loty extends Component {
           <ul>
             { loty.map(lot => (
                 <li key={lot.id_lot}>
-                    Lotnisko wylotu: { lot.lotnisko_wylot } 
-                    Lotnisko przylotu: { lot.lotnisko_przylot }
-                    
+                    Wylot
+                    Lotnisko: { lot.lotnisko_wylot } 
+                    Data: { lot.wylot } 
+
+                    Przylot
+                    Lotnisko: { lot.lotnisko_przylot }
+                    Data: { lot.przylot }
+
                 </li>
             ))}
           </ul>
