@@ -9,6 +9,7 @@ import LotyPoPrzylocieANR from './components/loty/LotyPoPrzylocieANR'
 import LotyPoPrzylocieRMI from './components/loty/LotyPoPrzylocieRMI'
 import LotyPoPrzylocieWMI from './components/loty/LotyPoPrzylocieWMI'
 import DodajPasazera from './components/pasazer/DodajPasazera'
+import DodajBagaz from './components/pasazer/DodajBagaz'
 
 import {
   BrowserRouter as Router,
@@ -33,6 +34,8 @@ class App extends Component {
                     <h>     </h>
                     <Link to="/Loty" >Wszystkie</Link>
                     <h>     </h>
+                    <Link to="/LotyPoPrzylocieWylocie" >Szukaj połączeń</Link>
+                    <h>     </h>
                     <Link to='/LotyPoWylocieWMI' >Z Warszawy</Link>
                     <h>     </h>
                     <Link to='/LotyPoWylocieCRL' >Z Brukseli</Link> 
@@ -55,6 +58,7 @@ class App extends Component {
                   
                 <Route extact path="/." component={App} />
                 <Route extact path="/Loty" component={Loty} />
+                <Route extact path="/LotyPoWylocieWylocie" component={LotyPoWylocieWylocie} />
                 <Route extact path="/LotyPoWylocieWMI" component={LotyPoWylocieWMI} />
                 <Route extact path="/LotyPoWylocieCRL" component={LotyPoWylocieCRL} />       
                 <Route extact path="/LotyPoWylocieLUZ" component={LotyPoWylocieLUZ} />   
@@ -72,11 +76,13 @@ class App extends Component {
                     <li>
                     <h>     </h>
                     <Link to="/DodajPasazera" >Zarejestruj sie</Link>
+                    <Link to="/DodajBagaz" >Dodaj bagaz</Link>
                  </li>
                   </ul>
                   
                 
                 <Route extact path="/DodajPasazera" component={DodajPasazera} /> 
+                <Route extact path="/DodajBagaz" component={DodajBagaz} /> 
               </div>
             </Router>
         </div>
