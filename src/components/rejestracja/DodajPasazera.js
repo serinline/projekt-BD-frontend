@@ -1,12 +1,12 @@
-import React, {useState, Component} from 'react';
+import React, {useState} from 'react';
 
 function DodajPasazera(props){
 
 
-    this.state = {
-        pasazer: [],
-        isLoaded: false,
-      }
+    // this.state = {
+    //     pasazer: [],
+    //     isLoaded: false,
+    //   }
 
 
     const [imie, setImie] = useState('');
@@ -29,11 +29,13 @@ function DodajPasazera(props){
 
     function getDane(){
 
+      let pasazer = [];
+
       fetch(`http://localhost:8090/pasazer/pesel/${pesel}`)
       .then(res => res.json()) //result
       .then(json => {
           this.setState({
-              isLoaded: true,
+              //isLoaded: true,
               pasazer: json
           })
       });

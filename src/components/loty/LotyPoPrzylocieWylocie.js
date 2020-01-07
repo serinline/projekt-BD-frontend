@@ -1,11 +1,6 @@
-import React, {useState, Component} from 'react';
+import React, {useState} from 'react';
 
 function LotyPoPrzylocieWylocie (props){
-
-    this.state = {
-        loty: [],
-        isLoaded: false,
-      }
 
 
     const [wylot, setWylot] = useState('')
@@ -21,34 +16,38 @@ function LotyPoPrzylocieWylocie (props){
 
 
     function handleSubmit(){
+
+        let loty = [];
+
         fetch(`http://localhost:8090/lot/${wylot}/${przylot}`)
         .then(res => res.json()) //result
         .then(json => {
             this.setState({
-                isLoaded: true,
+                //isLoaded: true,
                 loty: json
             })
         });
 
-            return (
+        class extends React.Component {
+            render(){
+                return (
                 <div>
                 { loty.map(lot => (
                     <div key={lot.id_lot}>
-                        <div class="title0">Nr lotu:  { lot.id_lot }</div>
-                        <div class="title1">Wylot</div>
-                        <div class = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
-                        <div class = "title2">Data: { lot.wylot }  </div>
+                        <div className="title0">Nr lotu:  { lot.id_lot }</div>
+                        <div className="title1">Wylot</div>
+                        <div className = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
+                        <div className = "title2">Data: { lot.wylot }  </div>
 
-                        <div class="title1">Przylot</div>
-                        <div class = "title2">Lotnisko: { lot.lotnisko_przylot } </div>
-                        <div class = "title2">Data: { lot.przylot } </div>
+                        <div className="title1">Przylot</div>
+                        <div className = "title2">Lotnisko: { lot.lotnisko_przylot } </div>
+                        <div className = "title2">Data: { lot.przylot } </div>
                     </div>
                 ))}
-
-        </div>
-        )
-    }
-
+                </div>
+            )
+        }
+    
     return (
         <div>
   
@@ -66,7 +65,7 @@ function LotyPoPrzylocieWylocie (props){
               </form>
               
             </div>
-      )
+            )
   
 }
 

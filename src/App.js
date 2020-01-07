@@ -8,8 +8,9 @@ import LotyPoPrzylocieCRL from './components/loty/LotyPoPrzylocieCRL'
 import LotyPoPrzylocieANR from './components/loty/LotyPoPrzylocieANR'
 import LotyPoPrzylocieRMI from './components/loty/LotyPoPrzylocieRMI'
 import LotyPoPrzylocieWMI from './components/loty/LotyPoPrzylocieWMI'
-import DodajPasazera from './components/pasazer/DodajPasazera'
-import DodajBagaz from './components/pasazer/DodajBagaz'
+import DodajPasazera from './components/rejestracja/DodajPasazera'
+import DodajBagaz from './components/rejestracja/DodajBagaz'
+import LotyPoPrzylocieWylocie from './components/loty/LotyPoPrzylocieWylocie'
 
 import {
   BrowserRouter as Router,
@@ -58,7 +59,7 @@ class App extends Component {
                   
                 <Route extact path="/." component={App} />
                 <Route extact path="/Loty" component={Loty} />
-                <Route extact path="/LotyPoWylocieWylocie" component={LotyPoWylocieWylocie} />
+                <Route extact path="/LotyPoPrzylocieWylocie" component={LotyPoPrzylocieWylocie} />
                 <Route extact path="/LotyPoWylocieWMI" component={LotyPoWylocieWMI} />
                 <Route extact path="/LotyPoWylocieCRL" component={LotyPoWylocieCRL} />       
                 <Route extact path="/LotyPoWylocieLUZ" component={LotyPoWylocieLUZ} />   
