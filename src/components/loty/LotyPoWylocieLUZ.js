@@ -39,22 +39,20 @@ class LotyPoWylocieWMI extends Component {
           return(
               <div>
 
-                   
+
                     { loty.map(lot => (
                         <div key={lot.id_lot}>
-                            <div class="title0">Nr lotu:  { lot.id_lot }</div>
-                            <div class="title1">Wylot</div>
-                            <div class = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
-                            <div class = "title2">Data: { lot.wylot } </div>
+                            <div className="title0">Nr lotu:  { lot.id_lot }</div>
+                            <div className="title1">Wylot</div>
+                            <div className = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
+                            <div className = "title2">Data: { lot.wylot }  </div>
 
-                            <div class="title1">Przylot</div>
-                            <div class = "title2">Lotnisko: { lot.lotnisko_przylot } </div>
-                            <div class = "title2">Data: { lot.przylot } </div>
-
+                            <div className="title1">Przylot</div>
+                            <div className = "title2">Lotnisko: { lot.lotnisko_przylot } </div>
+                            <div className = "title2">Data: { lot.przylot } </div>
                         </div>
-                       
                     ))}
-                    
+
            
               </div>
           );

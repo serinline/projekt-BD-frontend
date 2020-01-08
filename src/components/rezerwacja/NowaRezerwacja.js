@@ -1,5 +1,5 @@
 import React, {useState, Component} from 'react';
-
+import '../../style/style.css'
 
 function NowaRezerwacja(props){
 
@@ -20,10 +20,11 @@ function NowaRezerwacja(props){
     function getDane(){}
 
     function getMiejsce(){}
+
+    function handleSubmit(){}
     
     return (
         <div>
-            <button onClick={getMiejsce}>Pokaż dostępne miejsca</button>
   
             <form onSubmit={handleSubmit}>
 
@@ -43,9 +44,13 @@ function NowaRezerwacja(props){
         
                 <button>Rezerwuj</button>
               </form>
+
+              <div className="label"><button onClick={getMiejsce}>Pokaż dostępne miejsca</button></div>
   
-              <button onClick={getDane}>Więcej informacji</button>
+              <div className="label"><button onClick={getDane}>Więcej informacji</button></div>
               
             </div>
       )
 }
+
+export default NowaRezerwacja;

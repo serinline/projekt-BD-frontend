@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import '../../style/style.css'
 
 function DodajBagaz(props){
 
@@ -51,14 +52,14 @@ function DodajBagaz(props){
                     onChange={handleIdChange}/>
 
         
-                <label htmlFor="waga">Waga bagazu: </label>
+                <label htmlFor="waga">Waga bagażu: </label>
                 <input id="waga" type="text" value={waga} autoComplete="off"
                     onChange={handleWagaChange}/>
         
-                <button>Dodaj bagaż</button>
+                <button >Dodaj bagaż</button>
             </form>
 
-            <button onClick={updateRezerwacja}>Dodaj bagaż do swojej rezerwacji</button>
+            <button onClick={updateRezerwacja}>Dodaj do swojej rezerwacji</button>
 
         </div>
     )
