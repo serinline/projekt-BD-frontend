@@ -17,11 +17,14 @@ import LotyPoPrzylocieRMI from './LotyPoPrzylocieRMI'
 import LotyPoPrzylocieWMI from './LotyPoPrzylocieWMI'
 import Loty from './Loty'
 
+
 function SzukajLotow (){
 
 
     const [wylot, setWylot] = useState('')
     const [przylot, setPrzylot] = useState('')
+    const [loty, setLoty] = useState([])
+
 
     function handleWylotChange(event){
         setWylot(event.target.value);
@@ -32,40 +35,29 @@ function SzukajLotow (){
     }
 
 
-    function handleSubmit(wylot, przylot){
+    function handleSubmit(event){
+        event.preventDefault();
+        console.log(wylot, przylot)
 
-        // const [loty, setLoty] = useState([])
-
-        // fetch(`http://localhost:8090/lot/${wylot}/${przylot}`)
-        // .then(res => res.json()) //result
-        // .then(json => {
-        //     setLoty({
-        //         loty: json
-        //     })
-        // });
-
-            //     return (
-            //     <div>
-            //     { loty.map(lot => (
-            //         <div key={lot.id_lot}>
-            //             <div className="title0">Nr lotu:  { lot.id_lot }</div>
-            //             <div className="title1">Wylot</div>
-            //             <div className = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
-            //             <div className = "title2">Data: { lot.wylot }  </div>
-
-            //             <div className="title1">Przylot</div>
-            //             <div className = "title2">Lotnisko: { lot.lotnisko_przylot } </div>
-            //             <div className = "title2">Data: { lot.przylot } </div>
-            //         </div>
-            //     ))}
-            //     </div>
-            // )
+        fetch(`http://localhost:8090/lot/${wylot}/${przylot}`, {
+            method: "GET",
+            dataType: "JSON",
+            headers: {
+              "Content-Type": "application/json; charset=utf-8",
+            }
+          })
+        .then(res => { 
+            return res.json()
+        }) //result
+        .then(json => {
+            setLoty(json)
+        });
         }
     
     return (
         <div>
   
-            <form onSubmit={handleSubmit(wylot, przylot)}>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="wylot">Miejsce wylotu: </label>
                 <input id="wylot" type="text" value={wylot} autoComplete="off"
                     onChange={handleWylotChange}/>
@@ -77,7 +69,8 @@ function SzukajLotow (){
         
                 <button>Szukaj połączenia</button>
               </form>
-              
+
+            <ItemListerLot loty={loty}/>
             
 
             <Router>
@@ -117,5 +110,21 @@ function SzukajLotow (){
     )
   
 }
+
+const ItemListerLot = props =>  <div>
+    { props.loty.map(lot => (
+        <div key={lot.id_lot}>
+            <div className="title0">Nr lotu:  { lot.id_lot }</div>
+            <div className="title1">Wylot</div>
+            <div className = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
+            <div className = "title2">Data: { lot.wylot }  </div>
+
+            <div className="title1">Przylot</div>
+            <div className = "title2">Lotnisko: { lot.lotnisko_przylot } </div>
+            <div className = "title2">Data: { lot.przylot } </div>
+        </div>
+    ))}
+    </div>;
+
 
 export default SzukajLotow;

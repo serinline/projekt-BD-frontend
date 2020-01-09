@@ -56,4 +56,5 @@ class Loty extends Component {
   }
 }
 
+
 export default Loty;

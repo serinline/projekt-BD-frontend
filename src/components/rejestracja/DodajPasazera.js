@@ -1,19 +1,9 @@
 import React, {useState} from 'react';
 import '../../style/style.css'
-import ItemLister from './ItemLister'
 
 function DodajPasazera(){
 
-
-    // this.state = {
-    //     pasazer: [],
-    //     isLoaded: false,
-    //   }
-
     const [pasazer, setPasazer] = useState([]);
-
-
-
     const [imie, setImie] = useState('');
     const [nazwisko, setNazwisko] = useState('');
     const [pesel, setPesel] = useState(0);
@@ -35,24 +25,12 @@ function DodajPasazera(){
     function getDane(){
 
       fetch(`http://localhost:8090/pasazer/id`)
-      .then(res => res.json()) //result
+      .then(res => {
+        console.log(res);
+        return res.json()}) //result
       .then(json => {
-          // this.setState({
-          //     //isLoaded: true,
-          //     pasazer: json
-          // })
           setPasazer(json);
       });
-
-      // return (
-      //   <div>
-      //       { pasazer.map(one => (
-      //         <div key={one.id_pasazer}>
-      //             <div class="title1">Twoje ID:  { one.id_pasazer }</div>
-      //         </div>
-      //       ))}
-      //   </div>
-      // )
   
     }
 
@@ -102,11 +80,15 @@ function DodajPasazera(){
 
 
             <button onClick={getDane}>Pobierz swoje ID</button>
-            <ItemLister pasazer={pasazer}/>
+            <ItemListerPasazer pasazer={pasazer}/>
 
             
           </div>
     )
 }
+
+const ItemListerPasazer = props => <h2> {props.pasazer} </h2>;
+
+
 export default DodajPasazera;
 
