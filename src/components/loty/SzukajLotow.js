@@ -113,16 +113,21 @@ function SzukajLotow (){
 
 const ItemListerLot = props =>  <div>
     { props.loty.map(lot => (
-        <div key={lot.id_lot}>
-            <div className="title0">Nr lotu:  { lot.id_lot }</div>
-            <div className="title1">Wylot</div>
-            <div className = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
-            <div className = "title2">Data: { lot.wylot }  </div>
+                <div id="lista-lotow" key={lot.id_lot}>
+                <div className="title0">Nr lotu:  { lot.id_lot }</div>
+                  <div className="label">
+                    <div className="title1">Wylot</div>
+                    <div className = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
+                    <div className = "title2">Data: { lot.wylot } </div>
+                  </div>
 
-            <div className="title1">Przylot</div>
-            <div className = "title2">Lotnisko: { lot.lotnisko_przylot } </div>
-            <div className = "title2">Data: { lot.przylot } </div>
-        </div>
+                  <div className="label">
+                    <div className="title1">Przylot</div>
+                    <div className = "title2">Lotnisko: { lot.lotnisko_przylot } </div>
+                    <div className = "title2">Data: { lot.przylot } </div>
+                  </div>
+
+              </div>
     ))}
     </div>;
 

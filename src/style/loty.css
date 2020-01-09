@@ -32,3 +32,20 @@ label{
 .flights-list {
     margin-top: 30px;
 }
+
+.title0{
+    font-weight: bold;
+    color: navy;
+}
+
+.title1{
+    font-weight: bold;
+}
+
+#lista-lotow{
+    margin-bottom: 20px;
+}
+
+.title2 {
+    text-align: left;
+}

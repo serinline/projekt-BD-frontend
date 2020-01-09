@@ -32,3 +32,8 @@ button {
       display: inline-block;
       padding: 0 10px 0 10px;
   }
+
+  .miejsce {
+      font-weight: bold;
+      display: inline-block;
+  }
