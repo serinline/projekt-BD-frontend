@@ -38,7 +38,7 @@ class Loty extends Component {
 
             { loty.map(lot => (
                 <div key={lot.id_lot}>
-                  <div class="title0">Nr lotu:  { lot.id_lot }</div>
+                  <div className="title0">Nr lotu:  { lot.id_lot }</div>
                     <div className="title1">Wylot</div>
                     <div className = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
                     <div className = "title2">Data: { lot.wylot } </div>

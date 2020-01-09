@@ -32,41 +32,40 @@ function SzukajLotow (){
     }
 
 
-    function handleSubmit(){
+    function handleSubmit(wylot, przylot){
 
-        let loty = [];
+        // const [loty, setLoty] = useState([])
 
-        fetch(`http://localhost:8090/lot/${wylot}/${przylot}`)
-        .then(res => res.json()) //result
-        .then(json => {
-            this.setState({
-                //isLoaded: true,
-                loty: json
-            })
-        });
+        // fetch(`http://localhost:8090/lot/${wylot}/${przylot}`)
+        // .then(res => res.json()) //result
+        // .then(json => {
+        //     setLoty({
+        //         loty: json
+        //     })
+        // });
 
-                return (
-                <div>
-                { loty.map(lot => (
-                    <div key={lot.id_lot}>
-                        <div className="title0">Nr lotu:  { lot.id_lot }</div>
-                        <div className="title1">Wylot</div>
-                        <div className = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
-                        <div className = "title2">Data: { lot.wylot }  </div>
+            //     return (
+            //     <div>
+            //     { loty.map(lot => (
+            //         <div key={lot.id_lot}>
+            //             <div className="title0">Nr lotu:  { lot.id_lot }</div>
+            //             <div className="title1">Wylot</div>
+            //             <div className = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
+            //             <div className = "title2">Data: { lot.wylot }  </div>
 
-                        <div className="title1">Przylot</div>
-                        <div className = "title2">Lotnisko: { lot.lotnisko_przylot } </div>
-                        <div className = "title2">Data: { lot.przylot } </div>
-                    </div>
-                ))}
-                </div>
-            )
+            //             <div className="title1">Przylot</div>
+            //             <div className = "title2">Lotnisko: { lot.lotnisko_przylot } </div>
+            //             <div className = "title2">Data: { lot.przylot } </div>
+            //         </div>
+            //     ))}
+            //     </div>
+            // )
         }
     
     return (
         <div>
   
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(wylot, przylot)}>
                 <label htmlFor="wylot">Miejsce wylotu: </label>
                 <input id="wylot" type="text" value={wylot} autoComplete="off"
                     onChange={handleWylotChange}/>

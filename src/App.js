@@ -21,14 +21,13 @@ class App extends Component {
         <div className="App">
 
             <div className="Header">
-              <img src={header} width="650"/>
+              <img src={header} width="650" alt="header"/>
             </div>
 
             <Router>
             <div className="BottomMenu">
                <ul className="nav">
                     <li>
-                    <h>     </h>
                     <Link to="/MainPage" >Instrukcja rezerwacji</Link>
                     <Link to="/SzukajLotow" >Szukaj lotów</Link>
                     <Link to="/DodajPasazera" >Zarejestruj się</Link>

@@ -34,9 +34,7 @@ function DodajPasazera(){
 
     function getDane(){
 
-      //this.state = {pasazer: []}
-
-      fetch(`http://localhost:8090/pasazer/pesel/${pesel}`)
+      fetch(`http://localhost:8090/pasazer/id`)
       .then(res => res.json()) //result
       .then(json => {
           // this.setState({
@@ -104,9 +102,8 @@ function DodajPasazera(){
 
 
             <button onClick={getDane}>Pobierz swoje ID</button>
-            <tbody >
-                    <tr><td><ItemLister pasazer={pasazer}/></td></tr>
-             </tbody>
+            <ItemLister pasazer={pasazer}/>
+
             
           </div>
     )

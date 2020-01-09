@@ -2,7 +2,7 @@ import React from 'react';
 
 function ItemLister(props) {
     return <h2> 
-              {props.suggestion}
+              {props.pasazer}
             </h2>;
   }
   

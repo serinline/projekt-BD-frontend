@@ -1,4 +1,4 @@
-import React, {useState, Component} from 'react';
+import React, {useState} from 'react';
 import '../../style/style.css'
 
 function NowaRezerwacja(props){
@@ -19,7 +19,10 @@ function NowaRezerwacja(props){
 
     function getDane(){}
 
-    function getMiejsce(){}
+    function getMiejsce(){
+        let miejsca = [];
+        
+    }
 
     function handleSubmit(){}
     
