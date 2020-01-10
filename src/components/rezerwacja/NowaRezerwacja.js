@@ -9,7 +9,10 @@ function NowaRezerwacja(){
 
     const [wolneMsc, setWolneMsc] = useState([]);
 
-    const [id_rez, setIdRez] = useState(0)
+    const [id_rez, setIdRez] = useState([])
+
+    const [samolot, setSamolot] = useState([])
+    const [zaloga, setZaloga] = useState([])
 
     function handleIdPasazerChange(event){
         setIdPasazer(event.target.value);
@@ -20,18 +23,6 @@ function NowaRezerwacja(){
     function handleMiejsceChange(event){
         setMiejsce(event.target.value);
     }
-
-    function getDane(event){
-        event.preventDefault();
-        fetch(`http://localhost:8090/rezerwacja/id`)
-        .then(res => {
-          console.log(res);
-          return res.json()}) //result
-        .then(json => {
-            setIdRez(json);
-        });
-    
-      }
   
 
     function getMiejsce(event){
@@ -67,8 +58,65 @@ function NowaRezerwacja(){
             }),
           });
 
+        fetch(`http://localhost:8090/miejsca/${miejsce}/${id_lot}`, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            miejsce,
+            id_lot
+        }),
+        });          
+    }
+
+
+    function getIdRez(event){
+        event.preventDefault();
+        fetch(`http://localhost:8090/rezerwacja/id`)
+        .then(res => {
+          console.log(res);
+          return res.json()}) //result
+        .then(json => {
+            setIdRez(json);
+        });
     }
     
+    function getDane(event){
+        event.preventDefault();
+
+        //samolot
+        fetch(`http://localhost:8090/samolot/${id_rez}`, {
+            method: "GET",
+            dataType: "JSON",
+            headers: {
+              "Content-Type": "application/json; charset=utf-8",
+            }
+          })
+        .then(res => { 
+            return res.json()
+        }) //result
+        .then(json => {
+            setSamolot(json)
+        });
+
+        //zaloga
+        fetch(`http://localhost:8090/zaloga/${id_rez}`, {
+            method: "GET",
+            dataType: "JSON",
+            headers: {
+              "Content-Type": "application/json; charset=utf-8",
+            }
+          })
+        .then(res => { 
+            return res.json()
+        }) //result
+        .then(json => {
+            setZaloga(json)
+        });
+    }
+
     return (
         <div>
 
@@ -96,8 +144,15 @@ function NowaRezerwacja(){
                 <button>Rezerwuj</button>
               </form>
 
+
+              <div className="label1"><button onClick={getIdRez}>Pobierz ID swojej rezerwacji</button></div>
+              <ItemListerIdRezerwacji id_rez={id_rez} />
+
   
-              <div className="label"><button onClick={getDane}>Więcej informacji</button></div>
+              <div className="label2"><button onClick={getDane}>Więcej informacji</button></div>
+
+              <ItemListerZaloga zaloga={zaloga} />
+              <ItemListerSamolot samolot={samolot} />
               
             </div>
       )
@@ -111,5 +166,30 @@ const ItemListerMiejsca = props => <div>
 ))}
 </div>;
 
+const ItemListerIdRezerwacji = props => <h2> {props.id_rez} </h2>;
+
+
+const ItemListerZaloga = props => <div>
+{ props.zaloga.map(one => (
+            <div id="lista-lotow" key={one.id_pracownik}>
+            <div className="title0">Załoga samolotu</div>
+                <div className = "title2">Imię: { one.imie } </div>
+                <div className = "title2">Nazwisko: { one.nazwisko } </div>
+                <div className = "title2">Obywatelstwo: { one.obywatelstwo } </div>
+                <div className = "title2">Stanowisko: { one.stanowisko } </div>
+          </div>
+))}
+</div> 
+
+
+const ItemListerSamolot = props => <div>
+{ props.samolot.map(one => (
+            <div id="lista-lotow" key={one.id_pracownik}>
+            <div className="title0">Model samolotu</div>
+                <div className = "title2">Marka: { one.marka } </div>
+                <div className = "title2">Model: { one.model } </div>
+          </div>
+))}
+</div> 
 
 export default NowaRezerwacja;

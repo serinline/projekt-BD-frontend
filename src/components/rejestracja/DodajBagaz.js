@@ -26,20 +26,38 @@ function DodajBagaz(props){
                 waga
               }),
             });
+
+
+
+
+
+//to test if it works 
+            fetch(`http://localhost:8090/rezerwacjaUpdate/${id_rezerwacja}`, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    id_rezerwacja
+                }),
+                headers: {
+                  "Content-type": "application/json; charset=UTF-8"
+                }
+            }).then(response => {
+                            return response.json()
+            })
+
     }
 
     function updateRezerwacja(){
-        fetch(`http://localhost:8090/rezerwacjaUpdate/${id_rezerwacja}`, {
-			method: 'PUT',
-			body: JSON.stringify({
-				id_rezerwacja
-			}),
-			headers: {
-			  "Content-type": "application/json; charset=UTF-8"
-			}
-		}).then(response => {
-						return response.json()
-		})
+        // fetch(`http://localhost:8090/rezerwacjaUpdate/${id_rezerwacja}`, {
+		// 	method: 'PUT',
+		// 	body: JSON.stringify({
+		// 		id_rezerwacja
+		// 	}),
+		// 	headers: {
+		// 	  "Content-type": "application/json; charset=UTF-8"
+		// 	}
+		// }).then(response => {
+		// 				return response.json()
+		// })
     }
 
 

@@ -31,9 +31,19 @@ button {
   .label{
       display: inline-block;
       padding: 0 10px 0 10px;
+      object-fit: contain;
   }
 
   .miejsce {
       font-weight: bold;
       display: inline-block;
   }
+
+  .label1 {
+    float:left;
+    width:50%;
+  }
+  .label2 {
+    width: 100%;
+  }
+  

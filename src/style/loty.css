@@ -1,11 +1,10 @@
-a {
+a, .link-to {
     text-decoration: none;
     color: rgb(20, 20, 189);
     display: block;
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-
 }
 
 ul.flights-list li {
@@ -48,4 +47,16 @@ label{
 
 .title2 {
     text-align: left;
+}
+
+.link-to {
+    border:none;
+    text-transform: capitalize;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 30px;
+}
+
+.flights-list-default{
+    padding-left: 200px;
 }
