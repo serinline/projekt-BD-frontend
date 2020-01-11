@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import '../style/mainPage.css'
+import '../../style/mainPage.css'
 
-class MainPage extends Component {
+class Instrukcja extends Component {
   render(){
 
       return (
@@ -14,11 +14,11 @@ class MainPage extends Component {
                     <li>Wpisz swoje dane w zakładce 'Zarejestruj się'</li>
                     <li>Potwierdź zapis i pobierz swoje ID.</li>
                     <li>Przejdź do zakładki 'Rezerwacje' i uzupełnij pola zgodnie z opisem. </li>
-                    <li>W zakładce 'Dodaj bagaż' masz możliwość dodania bagażu nadanego. Brak dodania bagażu oznacza, że podróżnujesz jedynie z bagażem podręcznym. Pamiętaj o potwierdzeniu zapisu przyciskiem 'Dodaj bagaż do rezerwacji'.</li>
+                    <li>W zakładce 'Dodaj bagaż' masz możliwość dodania bagażu nadanego. Brak dodania bagażu oznacza, że podróżnujesz jedynie z bagażem podręcznym.</li>
                 </ul>
             </div>
       );
   }
 }
 
-export default MainPage;
+export default Instrukcja;

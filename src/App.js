@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import DodajPasazera from './components/rejestracja/DodajPasazera'
 import DodajBagaz from './components/rejestracja/DodajBagaz'
 import SzukajLotow from './components/loty/SzukajLotow'
-import MainPage from './components/MainPage'
+import Instrukcja from './components/rezerwacja/Instrukcja'
 import NowaRezerwacja from './components/rezerwacja/NowaRezerwacja'
 import AdminPanel from './components/admin/AdminPanel'
 
@@ -30,7 +30,7 @@ class App extends Component {
               <div className="BottomMenu">
                 <ul className="nav">
                       <li>
-                      <Link to="/MainPage" >Instrukcja rezerwacji</Link>
+                      <Link to="/Instrukcja" >Instrukcja rezerwacji</Link>
                       <Link to="/SzukajLotow" >Szukaj lotów</Link>
                       <Link to="/DodajPasazera" >Zarejestruj się</Link>
                       <Link to="/NowaRezerwacja" >Rezerwacje</Link>
@@ -39,7 +39,7 @@ class App extends Component {
                   </li>
                     </ul>
                     
-                    <Route extact path="/MainPage" component={MainPage} />
+                    <Route extact path="/Instrukcja" component={Instrukcja} />
                     <Route extact path="/SzukajLotow" component={SzukajLotow} />
                     <Route extact path="/DodajPasazera" component={DodajPasazera} /> 
                     <Route extact path="/NowaRezerwacja" component={NowaRezerwacja} />

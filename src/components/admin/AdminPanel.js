@@ -15,9 +15,9 @@ function AdminPanel(){
             method: "DELETE",
             dataType: "JSON",
           })
-        .then(res => { 
-            return res.json()
-        }) 
+        // .then(res => { 
+        //     res.json()
+       //}) 
     }
 
     function usunBagaz(event){
@@ -26,9 +26,9 @@ function AdminPanel(){
             method: "DELETE",
             dataType: "JSON",
           })
-        .then(res => { 
-            return res.json()
-        }) 
+        // .then(res => { 
+        //     return res.json()
+        //}) 
     }
 
     function handlePasazerChange(event){

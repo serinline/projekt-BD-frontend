@@ -46,7 +46,7 @@ function DodajBagaz(props){
 
     }
 
-    function updateRezerwacja(){
+    //function updateRezerwacja(){
         // fetch(`http://localhost:8090/rezerwacjaUpdate/${id_rezerwacja}`, {
 		// 	method: 'PUT',
 		// 	body: JSON.stringify({
@@ -58,7 +58,7 @@ function DodajBagaz(props){
 		// }).then(response => {
 		// 				return response.json()
 		// })
-    }
+    //}
 
 
     return (
@@ -77,7 +77,7 @@ function DodajBagaz(props){
                 <button >Dodaj bagaż</button>
             </form>
 
-            <button onClick={updateRezerwacja}>Dodaj do swojej rezerwacji</button>
+            {/* <button onClick={updateRezerwacja}>Dodaj do swojej rezerwacji</button> */}
 
         </div>
     )

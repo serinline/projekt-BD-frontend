@@ -83,7 +83,7 @@ function NowaRezerwacja(){
         });
     }
     
-    function getDane(event){
+    function getDaneSamolot(event){
         event.preventDefault();
 
         //samolot
@@ -101,6 +101,40 @@ function NowaRezerwacja(){
             setSamolot(json)
         });
 
+        // //zaloga
+        // fetch(`http://localhost:8090/zaloga/${id_rez}`, {
+        //     method: "GET",
+        //     dataType: "JSON",
+        //     headers: {
+        //       "Content-Type": "application/json; charset=utf-8",
+        //     }
+        //   })
+        // .then(res => { 
+        //     return res.json()
+        // }) //result
+        // .then(json => {
+        //     setZaloga(json)
+        // });
+    }
+
+    function getDaneZaloga(event){
+        event.preventDefault();
+
+        // //samolot
+        // fetch(`http://localhost:8090/samolot/${id_rez}`, {
+        //     method: "GET",
+        //     dataType: "JSON",
+        //     headers: {
+        //       "Content-Type": "application/json; charset=utf-8",
+        //     }
+        //   })
+        // .then(res => { 
+        //     return res.json()
+        // }) //result
+        // .then(json => {
+        //     setSamolot(json)
+        // });
+
         //zaloga
         fetch(`http://localhost:8090/zaloga/${id_rez}`, {
             method: "GET",
@@ -116,6 +150,8 @@ function NowaRezerwacja(){
             setZaloga(json)
         });
     }
+
+
 
     return (
         <div>
@@ -149,7 +185,8 @@ function NowaRezerwacja(){
               <ItemListerIdRezerwacji id_rez={id_rez} />
 
   
-              <div className="label2"><button onClick={getDane}>Więcej informacji</button></div>
+              <div className="label2"><button onClick={getDaneSamolot}>Model samolotu</button></div>
+              <div className="label2"><button onClick={getDaneZaloga}>Załoga samolotu</button></div>
 
               <ItemListerZaloga zaloga={zaloga} />
               <ItemListerSamolot samolot={samolot} />
@@ -170,9 +207,8 @@ const ItemListerIdRezerwacji = props => <h2> {props.id_rez} </h2>;
 
 
 const ItemListerZaloga = props => <div>
-{ props.zaloga.map(one => (
+        { props.zaloga.map(one => (
             <div id="lista-lotow" key={one.id_pracownik}>
-            <div className="title0">Załoga samolotu</div>
                 <div className = "title2">Imię: { one.imie } </div>
                 <div className = "title2">Nazwisko: { one.nazwisko } </div>
                 <div className = "title2">Obywatelstwo: { one.obywatelstwo } </div>
@@ -185,7 +221,6 @@ const ItemListerZaloga = props => <div>
 const ItemListerSamolot = props => <div>
 { props.samolot.map(one => (
             <div id="lista-lotow" key={one.id_pracownik}>
-            <div className="title0">Model samolotu</div>
                 <div className = "title2">Marka: { one.marka } </div>
                 <div className = "title2">Model: { one.model } </div>
           </div>
