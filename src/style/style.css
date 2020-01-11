@@ -2,7 +2,7 @@ input {
     margin: auto;
 }
 
-#id_rez, #waga, #imie, #nazwisko, #pesel, #obywatelstwo, #id_pasazer, #id_lot, #miejsce {
+#id_rez, #waga, #imie, #nazwisko, #pesel, #obywatelstwo, #id_pasazer, #id_lot, #miejsce, #bagaz, #pasazer, #zaloga {
     background-color: rgb(177, 204, 219);
 }
 
@@ -46,4 +46,11 @@ button {
   .label2 {
     width: 100%;
   }
+
+  .rezerwacja{
+      margin-left: 520px;
+  }
   
+  #pracownicy-lista{
+      height: 60px;
+  }

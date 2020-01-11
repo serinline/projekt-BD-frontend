@@ -12,7 +12,6 @@ function NowaRezerwacja(){
     const [id_rez, setIdRez] = useState([])
 
     const [samolot, setSamolot] = useState([])
-    const [zaloga, setZaloga] = useState([])
 
     function handleIdPasazerChange(event){
         setIdPasazer(event.target.value);
@@ -37,7 +36,7 @@ function NowaRezerwacja(){
         })
         .then(res => { 
             return res.json()
-        }) //result
+        }) 
         .then(json => {
             setWolneMsc(json)
         });
@@ -58,8 +57,13 @@ function NowaRezerwacja(){
             }),
           });
 
-        fetch(`http://localhost:8090/miejsca/${miejsce}/${id_lot}`, {
-        method: 'POST',
+        updateMiejsca(miejsce, id_lot);      
+    }
+
+    function updateMiejsca(msc, lt){
+        console.log(msc, lt);
+        fetch(`http://localhost:8090/miejsca/${msc}/${lt}`, {
+        method: 'PUT',
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
@@ -68,7 +72,7 @@ function NowaRezerwacja(){
             miejsce,
             id_lot
         }),
-        });          
+        });        
     }
 
 
@@ -77,7 +81,7 @@ function NowaRezerwacja(){
         fetch(`http://localhost:8090/rezerwacja/id`)
         .then(res => {
           console.log(res);
-          return res.json()}) //result
+          return res.json()}) 
         .then(json => {
             setIdRez(json);
         });
@@ -86,8 +90,8 @@ function NowaRezerwacja(){
     function getDaneSamolot(event){
         event.preventDefault();
 
-        //samolot
-        fetch(`http://localhost:8090/samolot/${id_rez}`, {
+
+        fetch(`http://localhost:8090/samolot/${id_lot}`, {
             method: "GET",
             dataType: "JSON",
             headers: {
@@ -96,100 +100,61 @@ function NowaRezerwacja(){
           })
         .then(res => { 
             return res.json()
-        }) //result
+        }) 
         .then(json => {
             setSamolot(json)
         });
 
-        // //zaloga
-        // fetch(`http://localhost:8090/zaloga/${id_rez}`, {
-        //     method: "GET",
-        //     dataType: "JSON",
-        //     headers: {
-        //       "Content-Type": "application/json; charset=utf-8",
-        //     }
-        //   })
-        // .then(res => { 
-        //     return res.json()
-        // }) //result
-        // .then(json => {
-        //     setZaloga(json)
-        // });
     }
 
-    function getDaneZaloga(event){
-        event.preventDefault();
-
-        // //samolot
-        // fetch(`http://localhost:8090/samolot/${id_rez}`, {
-        //     method: "GET",
-        //     dataType: "JSON",
-        //     headers: {
-        //       "Content-Type": "application/json; charset=utf-8",
-        //     }
-        //   })
-        // .then(res => { 
-        //     return res.json()
-        // }) //result
-        // .then(json => {
-        //     setSamolot(json)
-        // });
-
-        //zaloga
-        fetch(`http://localhost:8090/zaloga/${id_rez}`, {
-            method: "GET",
-            dataType: "JSON",
-            headers: {
-              "Content-Type": "application/json; charset=utf-8",
-            }
-          })
-        .then(res => { 
-            return res.json()
-        }) //result
-        .then(json => {
-            setZaloga(json)
-        });
-    }
 
 
 
     return (
         <div>
 
-            <form onSubmit={getMiejsce}>
+            <div className="label1">
 
-            <label htmlFor="id_lot">Wprowadź ID wybranego lotu: </label>
-                <input id="id_lot" type="text" value={id_lot} autoComplete="off"
-                    onChange={handleIdLotChange}/>
-                <button>Sprawdź wolne miejsca</button>
-            </form>
-            <ItemListerMiejsca wolneMsc={wolneMsc}/>
+                <form onSubmit={getMiejsce}>
+
+                <label htmlFor="id_lot">Wprowadź ID wybranego lotu: </label>
+                    <input id="id_lot" type="text" value={id_lot} autoComplete="off"
+                        onChange={handleIdLotChange}/>
+                    <button>Sprawdź wolne miejsca</button>
+                </form>
+                <ItemListerMiejsca wolneMsc={wolneMsc}/>
+
+
+                <div className="label2"><button onClick={getDaneSamolot}>Model samolotu</button></div>
+                <ItemListerSamolot samolot={samolot} />
+
+            </div>
+
+            <div className="label2">
+                <form onSubmit={handleSubmit}>
+
+                    <label htmlFor="id_pasazer">Wprowadź swoje ID: </label>
+                    <input id="id_pasazer" type="text" value={id_pasazer} autoComplete="off"
+                        onChange={handleIdPasazerChange}/>
+            
+                    <label htmlFor="miejsce">Wpisz wybrane miejsce:</label>
+                    <input id="miejsce" type="text" value={miejsce} autoComplete="off"
+                        onChange={handleMiejsceChange}/>
+    
+            
+                    <button className="rezerwacja">Rezerwuj</button>
+                </form>
+
+
+                <button className="rezerwacja" onClick={getIdRez}>Pobierz ID swojej rezerwacji</button>
+                <ItemListerIdRezerwacji id_rez={id_rez} />
+
+              </div>
 
   
-            <form onSubmit={handleSubmit}>
+              {/* <div className="label2"><button onClick={getDaneZaloga}>Załoga samolotu</button></div>
 
-                <label htmlFor="id_pasazer">Wprowadź swoje ID: </label>
-                <input id="id_pasazer" type="text" value={id_pasazer} autoComplete="off"
-                    onChange={handleIdPasazerChange}/>
-        
-                <label htmlFor="miejsce">Wpisz wybrane miejsce:</label>
-                <input id="miejsce" type="text" value={miejsce} autoComplete="off"
-                    onChange={handleMiejsceChange}/>
-  
-        
-                <button>Rezerwuj</button>
-              </form>
-
-
-              <div className="label1"><button onClick={getIdRez}>Pobierz ID swojej rezerwacji</button></div>
-              <ItemListerIdRezerwacji id_rez={id_rez} />
-
-  
-              <div className="label2"><button onClick={getDaneSamolot}>Model samolotu</button></div>
-              <div className="label2"><button onClick={getDaneZaloga}>Załoga samolotu</button></div>
-
-              <ItemListerZaloga zaloga={zaloga} />
-              <ItemListerSamolot samolot={samolot} />
+              <ItemListerZaloga zaloga={zaloga} /> */}
               
             </div>
       )
@@ -206,16 +171,7 @@ const ItemListerMiejsca = props => <div>
 const ItemListerIdRezerwacji = props => <h2> {props.id_rez} </h2>;
 
 
-const ItemListerZaloga = props => <div>
-        { props.zaloga.map(one => (
-            <div id="lista-lotow" key={one.id_pracownik}>
-                <div className = "title2">Imię: { one.imie } </div>
-                <div className = "title2">Nazwisko: { one.nazwisko } </div>
-                <div className = "title2">Obywatelstwo: { one.obywatelstwo } </div>
-                <div className = "title2">Stanowisko: { one.stanowisko } </div>
-          </div>
-))}
-</div> 
+
 
 
 const ItemListerSamolot = props => <div>
