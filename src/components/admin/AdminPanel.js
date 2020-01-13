@@ -9,6 +9,7 @@ function AdminPanel(){
 
     const [ID, setID] = useState(0)
     const [zaloga, setZaloga] = useState([])
+    const [pasazerowie, setPasazerowie] = useState([])
 
     function usunPasazera(event){
         event.preventDefault();
@@ -50,6 +51,25 @@ function AdminPanel(){
     }) 
     .then(json => {
         setPracownicy(json)
+    });
+
+    }
+
+    //implement in backend
+    function getPasazerow(event){
+        event.preventDefault();
+        fetch(`http://localhost:8090/pasazerowie`, {
+        method: "GET",
+        dataType: "JSON",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        }
+      })
+    .then(res => { 
+        return res.json()
+    }) 
+    .then(json => {
+        setPasazerowie(json)
     });
 
     }
@@ -97,6 +117,9 @@ function AdminPanel(){
                             onChange={handleBagazChange}/>
                         <button>Potwierdź</button>
                     </form>
+
+                <button id='pracownicy-lista' onClick={getPasazerow}>Wyświetl wszystkich pasażerów</button>
+                <ItemListerPasazerowie pasazerowie={pasazerowie}/>
 
             </div>
 
@@ -151,5 +174,22 @@ const ItemListerZaloga = props => <div>
           </div>
 ))}
 </div> 
+
+
+const ItemListerPasazerowie = props => <div>
+        { props.pasazerowie.map(one => (
+            <div id="lista-pracownikow" key={one.id_pasazer}>
+                  <div className="label">
+                    <div className="title1">ID: { one.id_pasazer }</div>
+                    <div className = "title2">Imie: { one.imie } </div>
+                    <div className = "title2">Nazwisko: { one.nazwisko } </div>
+                    <div className = "title2">Stanowisko: { one.pesel } </div>
+                    <div className = "title2">Obywatelstwo: { one.obywatelstwo } </div>
+                  </div>
+
+          </div>
+))}
+</div> 
+
 
 export default AdminPanel;
