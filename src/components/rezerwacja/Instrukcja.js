@@ -14,7 +14,7 @@ class Instrukcja extends Component {
                     <li>Wpisz swoje dane w zakładce 'Zarejestruj się'</li>
                     <li>Potwierdź zapis i pobierz swoje ID.</li>
                     <li>Przejdź do zakładki 'Rezerwacje' i uzupełnij pola zgodnie z opisem. </li>
-                    <li>W zakładce 'Dodaj bagaż' masz możliwość dodania bagażu nadanego. Brak dodania bagażu oznacza, że podróżnujesz jedynie z bagażem podręcznym.</li>
+                    <li>W zakładce 'Dodaj bagaż' masz możliwość dodania bagażu nadanego. Brak dodania bagażu oznacza, że podróżujesz jedynie z bagażem podręcznym.</li>
                 </ul>
             </div>
       );
