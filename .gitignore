@@ -9,7 +9,11 @@
 /coverage
 
 # production
+/build
 
+/server
+
+Procfile
 
 # misc
 .DS_Store
