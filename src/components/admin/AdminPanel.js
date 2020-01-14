@@ -55,7 +55,6 @@ function AdminPanel(){
 
     }
 
-    //implement in backend
     function getPasazerow(event){
         event.preventDefault();
         fetch(`http://localhost:8090/pasazerowie`, {
@@ -172,24 +171,24 @@ const ItemListerZaloga = props => <div>
                   </div>
 
           </div>
-))}
-</div> 
+    ))}
+    </div>;
 
 
 const ItemListerPasazerowie = props => <div>
-        { props.pasazerowie.map(one => (
-            <div id="lista-pracownikow" key={one.id_pasazer}>
+        { props.pasazerowie.map(pas => (
+            <div id="lista-pracownikow" key={pas.id_pasazer}>
                   <div className="label">
-                    <div className="title1">ID: { one.id_pasazer }</div>
-                    <div className = "title2">Imie: { one.imie } </div>
-                    <div className = "title2">Nazwisko: { one.nazwisko } </div>
-                    <div className = "title2">Stanowisko: { one.pesel } </div>
-                    <div className = "title2">Obywatelstwo: { one.obywatelstwo } </div>
+                    <div className="title1">ID: { pas.id_pasazer }</div>
+                    <div className = "title2">Imie: { pas.imie } </div>
+                    <div className = "title2">Nazwisko: { pas.nazwisko } </div>
+                    <div className = "title2">Pesel: { pas.pesel } </div>
+                    <div className = "title2">Obywatelstwo: { pas.obywatelstwo } </div>
                   </div>
 
           </div>
-))}
-</div> 
+    ))}
+    </div>;
 
 
 export default AdminPanel;
