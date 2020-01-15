@@ -15,7 +15,7 @@ function ListaLotow (){
         
 
         event.preventDefault();
-        fetch(`http://localhost:8090/przylot/${miasto}`, {
+        fetch(`http://bd-project.herokuapp.com/przylot/${miasto}`, {
             method: "GET",
             dataType: "JSON",
             headers: {
@@ -35,7 +35,7 @@ function ListaLotow (){
       setMiasto(event.target.value);
 
       event.preventDefault();
-      fetch(`http://localhost:8090/wylot/${miasto}`, {
+      fetch(`http://bd-project.herokuapp.com/wylot/${miasto}`, {
           method: "GET",
           dataType: "JSON",
           headers: {
@@ -53,7 +53,7 @@ function ListaLotow (){
 
     function handleSubmit(event){
       event.preventDefault();
-      fetch(`http://localhost:8090/lot`, {
+      fetch(`http://bd-project.herokuapp.com/lot`, {
           method: "GET",
           dataType: "JSON",
           headers: {

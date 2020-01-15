@@ -15,7 +15,7 @@ function DodajBagaz(props){
 
     function handleSubmit(){
     
-           fetch('http://localhost:8090/bagaz', {
+           fetch('http://bd-project.herokuapp.com/bagaz', {
               method: 'POST',
               headers: {
                 Accept: 'application/json',
@@ -32,7 +32,7 @@ function DodajBagaz(props){
 
 
 //to test if it works 
-            fetch(`http://localhost:8090/rezerwacjaUpdate/${id_rezerwacja}`, {
+            fetch(`http://bd-project.herokuapp.com/rezerwacjaUpdate/${id_rezerwacja}`, {
                 method: 'PUT',
                 body: JSON.stringify({
                     id_rezerwacja
@@ -45,20 +45,6 @@ function DodajBagaz(props){
             })
 
     }
-
-    //function updateRezerwacja(){
-        // fetch(`http://localhost:8090/rezerwacjaUpdate/${id_rezerwacja}`, {
-		// 	method: 'PUT',
-		// 	body: JSON.stringify({
-		// 		id_rezerwacja
-		// 	}),
-		// 	headers: {
-		// 	  "Content-type": "application/json; charset=UTF-8"
-		// 	}
-		// }).then(response => {
-		// 				return response.json()
-		// })
-    //}
 
 
     return (
@@ -76,8 +62,6 @@ function DodajBagaz(props){
         
                 <button >Dodaj bagaż</button>
             </form>
-
-            {/* <button onClick={updateRezerwacja}>Dodaj do swojej rezerwacji</button> */}
 
         </div>
     )

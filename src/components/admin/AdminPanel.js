@@ -15,7 +15,7 @@ function AdminPanel(){
         event.preventDefault();
 
 
-        fetch(`http://localhost:8090/usun/pasazer/${pasazer}`, {
+        fetch(`http://bd-project.herokuapp.com/usun/pasazer/${pasazer}`, {
             method: "DELETE",
             dataType: "JSON",
           })
@@ -23,7 +23,7 @@ function AdminPanel(){
 
     function usunBagaz(event){
         event.preventDefault();
-        fetch(`http://localhost:8090/usun/bagaz/${bagaz}`, {
+        fetch(`http://bd-project.herokuapp.com/usun/bagaz/${bagaz}`, {
             method: "DELETE",
             dataType: "JSON",
           })
@@ -39,7 +39,7 @@ function AdminPanel(){
 
     function getPracownikow(event){
         event.preventDefault();
-        fetch(`http://localhost:8090/zaloga`, {
+        fetch(`http://bd-project.herokuapp.com/zaloga`, {
         method: "GET",
         dataType: "JSON",
         headers: {
@@ -57,7 +57,7 @@ function AdminPanel(){
 
     function getPasazerow(event){
         event.preventDefault();
-        fetch(`http://localhost:8090/pasazerowie`, {
+        fetch(`https://bd-project.herokuapp.com/pasazerowie`, {
         method: "GET",
         dataType: "JSON",
         headers: {
@@ -76,7 +76,7 @@ function AdminPanel(){
     function getDaneZaloga(event){
         event.preventDefault();
 
-        fetch(`http://localhost:8090/zaloga/${ID}`, {
+        fetch(`https://bd-project.herokuapp.com/zaloga/${ID}`, {
             method: "GET",
             dataType: "JSON",
             headers: {
