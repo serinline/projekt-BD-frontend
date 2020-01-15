@@ -24,7 +24,7 @@ function DodajPasazera(){
 
     function getDane(){
 
-      fetch(`http://bd-project.herokuapp.com/pasazer/id`)
+      fetch(`https://bd-project.herokuapp.com/pasazer/id`)
       .then(res => {
         console.log(res);
         return res.json()}) //result
@@ -36,7 +36,7 @@ function DodajPasazera(){
 
     function handleSubmit(){
     
-           fetch('http://bd-project.herokuapp.com/pasazer', {
+           fetch('https://bd-project.herokuapp.com/pasazer', {
               method: 'POST',
               headers: {
                 Accept: 'application/json',

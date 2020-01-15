@@ -15,7 +15,7 @@ function DodajBagaz(props){
 
     function handleSubmit(){
     
-           fetch('http://bd-project.herokuapp.com/bagaz', {
+           fetch('https://bd-project.herokuapp.com/bagaz', {
               method: 'POST',
               headers: {
                 Accept: 'application/json',
@@ -32,7 +32,7 @@ function DodajBagaz(props){
 
 
 //to test if it works 
-            fetch(`http://bd-project.herokuapp.com/rezerwacjaUpdate/${id_rezerwacja}`, {
+            fetch(`https://bd-project.herokuapp.com/rezerwacjaUpdate/${id_rezerwacja}`, {
                 method: 'PUT',
                 body: JSON.stringify({
                     id_rezerwacja

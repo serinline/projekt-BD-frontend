@@ -25,7 +25,7 @@ function SzukajLotow (){
         event.preventDefault();
         console.log(wylot, przylot)
 
-        fetch(`http://bd-project.herokuapp.com/lot/${wylot}/${przylot}`, {
+        fetch(`https://bd-project.herokuapp.com/lot/${wylot}/${przylot}`, {
             method: "GET",
             dataType: "JSON",
             headers: {

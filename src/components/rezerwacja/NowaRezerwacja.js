@@ -27,7 +27,7 @@ function NowaRezerwacja(){
     function getMiejsce(event){
         event.preventDefault();
         console.log(id_lot)
-        fetch(`http://bd-project.herokuapp.com/miejsca/${id_lot}`, {
+        fetch(`https://bd-project.herokuapp.com/miejsca/${id_lot}`, {
         method: "GET",
         dataType: "JSON",
         headers: {
@@ -44,7 +44,7 @@ function NowaRezerwacja(){
 
     function handleSubmit(event){
         event.preventDefault();
-        fetch('http://bd-project.herokuapp.com/rezerwacja', {
+        fetch('https://bd-project.herokuapp.com/rezerwacja', {
             method: 'POST',
             headers: {
               Accept: 'application/json',
@@ -62,7 +62,7 @@ function NowaRezerwacja(){
 
     function updateMiejsca(msc, lt){
         console.log(msc, lt);
-        fetch(`http://bd-project.herokuapp.com/miejsca/${msc}/${lt}`, {
+        fetch(`https://bd-project.herokuapp.com/miejsca/${msc}/${lt}`, {
         method: 'PUT',
         headers: {
             Accept: 'application/json',
@@ -78,7 +78,7 @@ function NowaRezerwacja(){
 
     function getIdRez(event){
         event.preventDefault();
-        fetch(`http://bd-project.herokuapp.com/rezerwacja/id`)
+        fetch(`https://bd-project.herokuapp.com/rezerwacja/id`)
         .then(res => {
           console.log(res);
           return res.json()}) 
@@ -91,7 +91,7 @@ function NowaRezerwacja(){
         event.preventDefault();
 
 
-        fetch(`http://bd-project.herokuapp.com/samolot/${id_lot}`, {
+        fetch(`https://bd-project.herokuapp.com/samolot/${id_lot}`, {
             method: "GET",
             dataType: "JSON",
             headers: {
