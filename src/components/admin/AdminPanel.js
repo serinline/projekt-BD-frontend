@@ -11,6 +11,8 @@ function AdminPanel(){
     const [zaloga, setZaloga] = useState([])
     const [pasazerowie, setPasazerowie] = useState([])
 
+    const [rezerwacje, setRezerwacje] = useState([])
+
     function usunPasazera(event){
         event.preventDefault();
 
@@ -73,6 +75,24 @@ function AdminPanel(){
 
     }
 
+    function getRezerwacje(event){
+        event.preventDefault();
+        fetch(`https://bd-project.herokuapp.com/rezerwacje`, {
+        method: "GET",
+        dataType: "JSON",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        }
+      })
+    .then(res => { 
+        return res.json()
+    }) 
+    .then(json => {
+        setRezerwacje(json)
+    });
+
+    }
+
     function getDaneZaloga(event){
         event.preventDefault();
 
@@ -119,6 +139,9 @@ function AdminPanel(){
 
                 <button id='pracownicy-lista' onClick={getPasazerow}>Wyświetl wszystkich pasażerów</button>
                 <ItemListerPasazerowie pasazerowie={pasazerowie}/>
+
+                <button id='pracownicy-lista' onClick={getRezerwacje}>Wyświetl rezerwacje</button>
+                <ItemListerRezerwacje rezerwacje={rezerwacje}/>
 
             </div>
 
@@ -184,6 +207,21 @@ const ItemListerPasazerowie = props => <div>
                     <div className = "title2">Nazwisko: { pas.nazwisko } </div>
                     <div className = "title2">Pesel: { pas.pesel } </div>
                     <div className = "title2">Obywatelstwo: { pas.obywatelstwo } </div>
+                  </div>
+
+          </div>
+    ))}
+    </div>;
+
+
+const ItemListerPRezerwacje = props => <div>
+        { props.rezerwacje.map(pas => (
+            <div id="lista-pracownikow" key={rez.id_rezerwacja}>
+                  <div className="label">
+                    <div className="title1">ID: { rez.id_rezerwacja }</div>
+                    <div className = "title2">Id pasazera: { pas.id_pasazer } </div>
+                    <div className = "title2">Id lotu: { pas.id_lot } </div>
+                    <div className = "title2">Id bagazu: { pas.id_bagaz } </div>
                   </div>
 
           </div>
