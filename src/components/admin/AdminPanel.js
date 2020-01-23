@@ -214,8 +214,8 @@ const ItemListerPasazerowie = props => <div>
     </div>;
 
 
-const ItemListerPRezerwacje = props => <div>
-        { props.rezerwacje.map(pas => (
+const ItemListerRezerwacje = props => <div>
+        { props.rezerwacje.map(rez => (
             <div id="lista-pracownikow" key={rez.id_rezerwacja}>
                   <div className="label">
                     <div className="title1">ID: { rez.id_rezerwacja }</div>
