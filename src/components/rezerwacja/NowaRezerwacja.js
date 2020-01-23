@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import '../../style/style.css'
+import Select from "react-select";
+
 
 function NowaRezerwacja(){
 
@@ -7,7 +9,7 @@ function NowaRezerwacja(){
     const [id_lot, setIdLot] = useState(0);
     const [miejsce, setMiejsce] = useState('');
 
-    const [wolneMsc, setWolneMsc] = useState([]);
+    // const [wolneMsc, setWolneMsc] = useState([]);
 
     const [id_rez, setIdRez] = useState([])
 
@@ -22,25 +24,36 @@ function NowaRezerwacja(){
     function handleMiejsceChange(event){
         setMiejsce(event.target.value);
     }
-  
 
-    function getMiejsce(event){
-        event.preventDefault();
-        console.log(id_lot)
-        fetch(`https://bd-project.herokuapp.com/miejsca/${id_lot}`, {
-        method: "GET",
-        dataType: "JSON",
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-         }
-        })
-        .then(res => { 
-            return res.json()
-        }) 
-        .then(json => {
-            setWolneMsc(json)
+    let options1 = [];
+  
+    async function copyOptionsForAsync() {
+        let response = await fetch("https://bd-project.herokuapp.com/lot");
+        let data = await response.json();
+      
+        data.forEach(element => {
+          let dropDownEle = { label: element["title"], value: element };
+          options1.push(dropDownEle);
         });
-    }
+      }
+      
+    // function getMiejsce(event){
+    //     event.preventDefault();
+    //     console.log(id_lot)
+    //     fetch(`https://bd-project.herokuapp.com/miejsca/${id_lot}`, {
+    //     method: "GET",
+    //     dataType: "JSON",
+    //     headers: {
+    //       "Content-Type": "application/json; charset=utf-8",
+    //      }
+    //     })
+    //     .then(res => { 
+    //         return res.json()
+    //     }) 
+    //     .then(json => {
+    //         setWolneMsc(json)
+    //     });
+    // }
 
     function handleSubmit(event){
         event.preventDefault();
@@ -60,20 +73,20 @@ function NowaRezerwacja(){
         // updateMiejsca(miejsce, id_lot);      
     }
 
-    function updateMiejsca(msc, lt){
-        console.log(msc, lt);
-        fetch(`https://bd-project.herokuapp.com/miejsca/${msc}/${lt}`, {
-        method: 'PUT',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            miejsce,
-            id_lot
-        }),
-        });        
-    }
+    // function updateMiejsca(msc, lt){
+    //     console.log(msc, lt);
+    //     fetch(`https://bd-project.herokuapp.com/miejsca/${msc}/${lt}`, {
+    //     method: 'PUT',
+    //     headers: {
+    //         Accept: 'application/json',
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({
+    //         miejsce,
+    //         id_lot
+    //     }),
+    //     });        
+    // }
 
 
     function getIdRez(event){
@@ -114,6 +127,9 @@ function NowaRezerwacja(){
         <div>
 
             <div className="label1">
+
+                <button id='pracownicy-lista' onClick={copyOptionsForAsync}>Wyświetl loty</button>
+                <ItemListerLoty loty={options1}/>
 
                 <form onSubmit={getMiejsce}>
 
@@ -191,6 +207,10 @@ const ItemListerSamolot = props => <div>
                 <div className = "title2">Model: { one.model } </div>
           </div>
 ))}
+</div> 
+
+const ItemListerLoty = props => <div>
+{ <Select name="options2" options={props.options1} /> }
 </div> 
 
 export default NowaRezerwacja;
