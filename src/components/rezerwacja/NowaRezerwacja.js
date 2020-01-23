@@ -161,23 +161,22 @@ function NowaRezerwacja(){
       )
 }
 
-// const ItemListerMiejsca = props => <div>
-// { props.wolneMsc.map(msc => (
-//             <div key={msc.miejsce}>
-//                 <div className="miejsce">{ msc.miejsce }</div>
-
-//           </div>
-// ))}
-// </div>;
-
 const ItemListerMiejsca = props => <div>
 { props.wolneMsc.map(msc => (
-            <select  key={msc.miejsce}>
-                <option value = { msc.miejsce }> { msc.miejsce } </option>
-                
-          </select >
+            <div key={msc.miejsce}>
+                <div className="miejsce">{ msc.miejsce }</div>
+          </div>
 ))}
 </div>;
+
+// const ItemListerMiejsca = props => <div>
+// { props.wolneMsc.map(msc => (
+//             <select  key={msc.miejsce}>
+//                 <option value = { msc.miejsce }> { msc.miejsce } </option>
+                
+//           </select >
+// ))}
+// </div>;
 
 const ItemListerIdRezerwacji = props => <h2> {props.id_rez} </h2>;
 
