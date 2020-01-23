@@ -9,7 +9,7 @@ function NowaRezerwacja(){
     const [id_lot, setIdLot] = useState(0);
     const [miejsce, setMiejsce] = useState('');
 
-    // const [wolneMsc, setWolneMsc] = useState([]);
+    const [wolneMsc, setWolneMsc] = useState([]);
 
     const [id_rez, setIdRez] = useState([])
 
