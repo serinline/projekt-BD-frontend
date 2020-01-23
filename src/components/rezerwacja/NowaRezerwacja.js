@@ -27,7 +27,7 @@ function NowaRezerwacja(){
 
     let options1 = [];
   
-    async function copyOptionsForAsync() {
+    async function copyOptionsForAsync(event) {
         let response = await fetch("https://bd-project.herokuapp.com/lot");
         let data = await response.json();
       
