@@ -43,6 +43,10 @@ function NowaRezerwacja(){
     }
 
     function handleSubmit(event){
+
+        var tmp = miejsca.inclues(miejsce);
+        console.log(tmp);
+        
         event.preventDefault();
         fetch('https://bd-project.herokuapp.com/rezerwacja', {
             method: 'POST',
