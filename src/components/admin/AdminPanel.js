@@ -216,11 +216,12 @@ const ItemListerPasazerowie = props => <div>
 
 const ItemListerRezerwacje = props => <div>
         { props.rezerwacje.map(rez => (
-            <div id="lista-pracownikow" key={rez.id_rezerwacja}>
+            <div id="lista-rezeracji" key={rez.id_rezerwacja}>
                   <div className="label">
                     <div className="title1">ID: { rez.id_rezerwacja }</div>
-                    <div className = "title2">Id rezerwacji: { rez.id_pasazer } </div>
-                    <div className = "title2">Id pasazera: { rez.id_pasazer } </div>
+                    <div className = "title2">Id pasażera: { rez.id_pasazer } </div>
+                    <div className = "title2">Id lotu: { rez.id_lot } </div>
+                    <div className = "title2">Id bagażu: { rez.id_bagaz } </div>
                   </div>
 
           </div>
