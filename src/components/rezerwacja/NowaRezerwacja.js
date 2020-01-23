@@ -43,10 +43,6 @@ function NowaRezerwacja(){
     }
 
     function handleSubmit(event){
-
-        var tmp = miejsca.inclues(miejsce);
-        console.log(tmp);
-        
         event.preventDefault();
         fetch('https://bd-project.herokuapp.com/rezerwacja', {
             method: 'POST',
@@ -144,6 +140,7 @@ function NowaRezerwacja(){
                     <label htmlFor="miejsce">Wpisz wybrane miejsce:</label>
                     <input id="miejsce" type="text" value={miejsce} autoComplete="off"
                         onChange={handleMiejsceChange}/>
+        
     
             
                     <button className="rezerwacja">Rezerwuj</button>
@@ -164,11 +161,21 @@ function NowaRezerwacja(){
       )
 }
 
+// const ItemListerMiejsca = props => <div>
+// { props.wolneMsc.map(msc => (
+//             <div key={msc.miejsce}>
+//                 <div className="miejsce">{ msc.miejsce }</div>
+
+//           </div>
+// ))}
+// </div>;
+
 const ItemListerMiejsca = props => <div>
 { props.wolneMsc.map(msc => (
-            <div key={msc.miejsce}>
-                <div className="miejsce">{ msc.miejsce }</div>
-          </div>
+            <select  key={msc.miejsce}>
+                <option value = { msc.miejsce }> { msc.miejsce } </option>
+                
+          </select >
 ))}
 </div>;
 
