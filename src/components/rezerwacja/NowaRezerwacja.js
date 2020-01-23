@@ -53,11 +53,11 @@ function NowaRezerwacja(){
             body: JSON.stringify({
               id_pasazer,
               id_lot,
-              miejsce
+              //miejsce
             }),
           });
 
-        updateMiejsca(miejsce, id_lot);      
+        // updateMiejsca(miejsce, id_lot);      
     }
 
     function updateMiejsca(msc, lt){
@@ -120,9 +120,9 @@ function NowaRezerwacja(){
                 <label htmlFor="id_lot">Wprowadź ID wybranego lotu: </label>
                     <input id="id_lot" type="text" value={id_lot} autoComplete="off"
                         onChange={handleIdLotChange}/>
-                    <button>Sprawdź wolne miejsca</button>
+                    {/* <button>Sprawdź wolne miejsca</button> */}
                 </form>
-                <ItemListerMiejsca wolneMsc={wolneMsc}/>
+                {/* <ItemListerMiejsca wolneMsc={wolneMsc}/> */}
 
 
                 <div className="label2"><button onClick={getDaneSamolot}>Model samolotu</button></div>
@@ -137,9 +137,9 @@ function NowaRezerwacja(){
                     <input id="id_pasazer" type="text" value={id_pasazer} autoComplete="off"
                         onChange={handleIdPasazerChange}/>
             
-                    <label htmlFor="miejsce">Wpisz wybrane miejsce:</label>
+                    {/* <label htmlFor="miejsce">Wpisz wybrane miejsce:</label>
                     <input id="miejsce" type="text" value={miejsce} autoComplete="off"
-                        onChange={handleMiejsceChange}/>
+                        onChange={handleMiejsceChange}/> */}
         
     
             
@@ -161,13 +161,13 @@ function NowaRezerwacja(){
       )
 }
 
-const ItemListerMiejsca = props => <div>
-{ props.wolneMsc.map(msc => (
-            <div key={msc.miejsce}>
-                <div className="miejsce">{ msc.miejsce }</div>
-          </div>
-))}
-</div>;
+// const ItemListerMiejsca = props => <div>
+// { props.wolneMsc.map(msc => (
+//             <div key={msc.miejsce}>
+//                 <div className="miejsce">{ msc.miejsce }</div>
+//           </div>
+// ))}
+// </div>;
 
 // const ItemListerMiejsca = props => <div>
 // { props.wolneMsc.map(msc => (
