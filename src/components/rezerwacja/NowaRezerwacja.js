@@ -37,23 +37,23 @@ function NowaRezerwacja(){
         });
       }
       
-    // function getMiejsce(event){
-    //     event.preventDefault();
-    //     console.log(id_lot)
-    //     fetch(`https://bd-project.herokuapp.com/miejsca/${id_lot}`, {
-    //     method: "GET",
-    //     dataType: "JSON",
-    //     headers: {
-    //       "Content-Type": "application/json; charset=utf-8",
-    //      }
-    //     })
-    //     .then(res => { 
-    //         return res.json()
-    //     }) 
-    //     .then(json => {
-    //         setWolneMsc(json)
-    //     });
-    // }
+    function getMiejsce(event){
+        event.preventDefault();
+        console.log(id_lot)
+        fetch(`https://bd-project.herokuapp.com/miejsca/${id_lot}`, {
+        method: "GET",
+        dataType: "JSON",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+         }
+        })
+        .then(res => { 
+            return res.json()
+        }) 
+        .then(json => {
+            setWolneMsc(json)
+        });
+    }
 
     function handleSubmit(event){
         event.preventDefault();
