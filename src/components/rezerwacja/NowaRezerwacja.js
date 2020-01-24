@@ -27,14 +27,23 @@ function NowaRezerwacja(){
 
     let options1 = [];
   
-    async function copyOptionsForAsync(event) {
-        let response = await fetch("https://bd-project.herokuapp.com/lot");
-        let data = await response.json();
-      
+    function copyOptionsForAsync(event) {
+        fetch("https://bd-project.herokuapp.com/lot",{
+        method: "GET",
+        dataType: "JSON",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+         }
+        })
+        .then(res => { 
+            return res.json()
+        }) 
+        .then(
         data.forEach(element => {
           let dropDownEle = { label: element["title"], value: element };
           options1.push(dropDownEle);
-        });
+        }));
+        console.log(options1);
       }
       
     function getMiejsce(event){
