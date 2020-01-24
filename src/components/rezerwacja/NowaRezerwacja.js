@@ -102,22 +102,6 @@ function NowaRezerwacja(){
         });
         }
 
-        componentDidMount(){
-            fetch(`https://bd-project.herokuapp.com/lot`, {
-                method: "GET",
-                dataType: "JSON",
-                headers: {
-                  "Content-Type": "application/json; charset=utf-8",
-                }
-              })
-            .then(res => { 
-                return res.json()
-            }) //result
-            .then(json => {
-                setLoty(json)
-            });
-            }
-
 
     // function updateMiejsca(msc, lt){
     //     console.log(msc, lt);
@@ -187,21 +171,17 @@ function NowaRezerwacja(){
                 <ItemListerMiejsca wolneMsc={wolneMsc}/> */}
 
                 <form>
-                      <button className="link-to" name="wszystkie-loty" value="all" onClick={getLoty}>Wszystkie loty</button>
+                      <button className="rezerwacja" name="wszystkie-loty" value="all" onClick={getLoty}>Wszystkie loty</button>
                   </form>
-                  {/* <ItemListerLot loty={loty}/> */}
-                  <select onChange={handleIdLotChange}>
-                    {loty.map((lot) => <option key={lot.id_lot} value={lot.id_lot}> Id: {lot.id_lot} : {lot.lotnisko_wylot} : { lot.wylot } -> {lot.lotnisko_przylot } : { lot.przylot }</option>)}
-                </select>
-
-
-
-                <div className="label2"><button onClick={getDaneSamolot}>Model samolotu</button></div>
-                <ItemListerSamolot samolot={samolot} />
+                  <ItemListerLot loty={loty}/>
 
             </div>
 
             <div className="label2">
+                
+                <button onClick={getDaneSamolot}>Model samolotu</button></div>
+                <ItemListerSamolot samolot={samolot} />
+
                 <form onSubmit={handleSubmit}>
                 {/* <label htmlFor="id_lot">Wprowadź ID wybranego lotu: </label>
                     <input id="id_lot" type="text" value={id_lot} autoComplete="off"
@@ -263,15 +243,15 @@ const ItemListerSamolot = props => <div>
 ))}
 </div> 
 
-// const ItemListerLoty = props => <div>
-// { <Select name="options2" options={props.options1} /> }
-// </div> 
+const ItemListerLoty = props => <div>
+{ <Select name="options2" options={props.options1} /> }
+</div> 
 
-// const ItemListerLot = props =>  <div>
-//                 <select onChange={handleIdLotChange}>
-//                     {props.loty.map((lot) => <option key={lot.id_lot} value={lot.id_lot}> Id: {lot.id_lot} : {lot.lotnisko_wylot} : { lot.wylot } -> {lot.lotnisko_przylot } : { lot.przylot }</option>)}
-//               </select>
-//     </div> 
+const ItemListerLot = props =>  <div>
+                <select onChange={handleIdLotChange}>
+                    {props.loty.map((lot) => <option key={lot.id_lot} value={lot.id_lot}> Id: {lot.id_lot} : {lot.lotnisko_wylot} : { lot.wylot } -> {lot.lotnisko_przylot } : { lot.przylot }</option>)}
+              </select>
+    </div> 
 
 
 export default NowaRezerwacja;
