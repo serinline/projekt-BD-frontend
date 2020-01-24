@@ -39,7 +39,7 @@ function NowaRezerwacja(){
             return res.json()
         }) 
         .then(
-        data.forEach(element => {
+        res.forEach(element => {
           let dropDownEle = { label: element["title"], value: element };
           options1.push(dropDownEle);
         }));
