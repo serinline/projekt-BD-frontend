@@ -102,6 +102,22 @@ function NowaRezerwacja(){
         });
         }
 
+        function componentDidMount(){
+            fetch(`https://bd-project.herokuapp.com/lot`, {
+                method: "GET",
+                dataType: "JSON",
+                headers: {
+                  "Content-Type": "application/json; charset=utf-8",
+                }
+              })
+            .then(res => { 
+                return res.json()
+            }) //result
+            .then(json => {
+                setLoty(json)
+            });
+            }
+
 
     // function updateMiejsca(msc, lt){
     //     console.log(msc, lt);
