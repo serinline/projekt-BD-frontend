@@ -251,11 +251,11 @@ const ItemListerSamolot = props => <div>
 // { <Select name="options2" options={props.options1} /> }
 // </div> 
 
-const ItemListerLot = props =>  <div>
-                <select onChange={handleIdLotChange}>
-                    {props.loty.map((lot) => <option key={lot.id_lot} value={lot.id_lot}> Id: {lot.id_lot} : {lot.lotnisko_wylot} : { lot.wylot } -> {lot.lotnisko_przylot } : { lot.przylot }</option>)}
-              </select>
-    </div> 
+// const ItemListerLot = props =>  <div>
+//                 <select onChange={handleIdLotChange}>
+//                     {props.loty.map((lot) => <option key={lot.id_lot} value={lot.id_lot}> Id: {lot.id_lot} : {lot.lotnisko_wylot} : { lot.wylot } -> {lot.lotnisko_przylot } : { lot.przylot }</option>)}
+//               </select>
+//     </div> 
 
 
 export default NowaRezerwacja;
