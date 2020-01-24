@@ -248,9 +248,9 @@ const ItemListerSamolot = props => <div>
 
 const ItemListerLot = props =>  <div>
     { props.loty.map(lot => (
-                <div id="lista-lotow" key={lot.id_lot}>
-                <div className="title0">Nr lotu:  { lot.id_lot }</div>
-                  <div className="label">
+                <select id="lista-lotow" key={lot.id_lot}>
+                <option className="title0">Nr lotu:  { lot.id_lot }</option>
+                  {/* <div className="label">
                     <div className="title1">Wylot</div>
                     <div className = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
                     <div className = "title2">Data: { lot.wylot } </div>
@@ -260,9 +260,9 @@ const ItemListerLot = props =>  <div>
                     <div className="title1">Przylot</div>
                     <div className = "title2">Lotnisko: { lot.lotnisko_przylot } </div>
                     <div className = "title2">Data: { lot.przylot } </div>
-                  </div>
+                  </div> */}
 
-              </div>
+              </select>
     ))}
     {/* {props.loty.lenght === 0 && <div> Nie znaleziono lotów </div>} */}
     </div> 
