@@ -178,7 +178,7 @@ function NowaRezerwacja(){
             </div>
 
             <div className="label2">
-                
+
                 <button onClick={getDaneSamolot}>Model samolotu</button></div>
                 <ItemListerSamolot samolot={samolot} />
 
@@ -203,8 +203,6 @@ function NowaRezerwacja(){
 
                 <button className="rezerwacja" onClick={getIdRez}>Pobierz ID swojej rezerwacji</button>
                 <ItemListerIdRezerwacji id_rez={id_rez} />
-
-              </div>
 
   
               {/* <div className="label2"><button onClick={getDaneZaloga}>Załoga samolotu</button></div>
