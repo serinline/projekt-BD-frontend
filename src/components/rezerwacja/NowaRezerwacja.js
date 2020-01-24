@@ -25,26 +25,26 @@ function NowaRezerwacja(){
         setMiejsce(event.target.value);
     }
 
-    let options1 = [];
+    // let options1 = [];
   
-    function copyOptionsForAsync(event) {
-        fetch("https://bd-project.herokuapp.com/lot",{
-        method: "GET",
-        dataType: "JSON",
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-         }
-        })
-        .then(res => { 
-            return res.json()
-        }) 
-        .then(
-        res.forEach(element => {
-          let dropDownEle = { label: element["title"], value: element };
-          options1.push(dropDownEle);
-        }));
-        console.log(options1);
-      }
+    // function copyOptionsForAsync(event) {
+    //     fetch("https://bd-project.herokuapp.com/lot",{
+    //     method: "GET",
+    //     dataType: "JSON",
+    //     headers: {
+    //       "Content-Type": "application/json; charset=utf-8",
+    //      }
+    //     })
+    //     .then(res => { 
+    //         return res.json()
+    //     }) 
+    //     .then(
+    //     res.forEach(element => {
+    //       let dropDownEle = { label: element["title"], value: element };
+    //       options1.push(dropDownEle);
+    //     }));
+    //     console.log(options1);
+    //   }
       
     function getMiejsce(event){
         event.preventDefault();
@@ -136,9 +136,9 @@ function NowaRezerwacja(){
         <div>
 
             <div className="label1">
-
+{/* 
                 <button id='pracownicy-lista' onClick={copyOptionsForAsync}>Wyświetl loty</button>
-                <ItemListerLoty loty={options1}/>
+                <ItemListerLoty loty={options1}/> */}
 
                 <form onSubmit={getMiejsce}>
 
@@ -218,8 +218,8 @@ const ItemListerSamolot = props => <div>
 ))}
 </div> 
 
-const ItemListerLoty = props => <div>
-{ <Select name="options2" options={props.options1} /> }
-</div> 
+// const ItemListerLoty = props => <div>
+// { <Select name="options2" options={props.options1} /> }
+// </div> 
 
 export default NowaRezerwacja;
