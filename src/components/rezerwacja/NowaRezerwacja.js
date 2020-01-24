@@ -248,7 +248,7 @@ const ItemListerSamolot = props => <div>
 
 const ItemListerLot = props =>  <div>
                 <select>
-                    {props.loty.map((lot) => <option key={lot.id_lot} value={lot.id_lot}>{lot.lotnisko_wylot}</option>)}
+                    {props.loty.map((lot) => <option key={lot.id_lot} value={lot.id_lot}> Id: {lot.id_lot} : {lot.lotnisko_wylot} : { lot.wylot } -> {lot.lotnisko_przylot } : { lot.przylot }</option>)}
               </select>
     </div> 
 
