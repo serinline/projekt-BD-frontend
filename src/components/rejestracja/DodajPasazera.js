@@ -49,6 +49,7 @@ function DodajPasazera(){
                 obywatelstwo
               }),
             });
+            getDane();
     }
 
     
@@ -79,7 +80,7 @@ function DodajPasazera(){
             </form>
 
 
-            <button onClick={getDane}>Pobierz swoje ID</button>
+            {/* <button onClick={getDane}>Pobierz swoje ID</button> */}
             <ItemListerPasazer pasazer={pasazer}/>
 
             
