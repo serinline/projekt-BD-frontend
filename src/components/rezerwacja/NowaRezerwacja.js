@@ -178,12 +178,12 @@ function NowaRezerwacja(){
                     {loty.map((lot) => <option key={lot.id_lot} value={lot.id_lot}> Id: {lot.id_lot} : {lot.lotnisko_wylot} : { lot.wylot } -> {lot.lotnisko_przylot } : { lot.przylot }</option>)}
                      </select>
 
+                     <button onClick={getDaneSamolot}>Model samolotu</button></div>
+                <ItemListerSamolot samolot={samolot} />
+
             </div>
 
             <div className="label2">
-
-                <button onClick={getDaneSamolot}>Model samolotu</button></div>
-                <ItemListerSamolot samolot={samolot} />
 
                 <form onSubmit={handleSubmit}>
                 {/* <label htmlFor="id_lot">Wprowadź ID wybranego lotu: </label>
