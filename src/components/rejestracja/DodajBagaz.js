@@ -33,17 +33,17 @@ function DodajBagaz(props){
 
 
 //to test if it works 
-            fetch(`https://bd-project.herokuapp.com/rezerwacjaUpdate/${id_rezerwacja}`, {
-                method: 'PUT',
-                body: JSON.stringify({
-                    id_rezerwacja
-                }),
-                headers: {
-                  "Content-type": "application/json; charset=UTF-8"
-                }
-            }).then(response => {
-                return response.json()
-            })
+            // fetch(`https://bd-project.herokuapp.com/rezerwacjaUpdate/${id_rezerwacja}`, {
+            //     method: 'PUT',
+            //     body: JSON.stringify({
+            //         id_rezerwacja
+            //     }),
+            //     headers: {
+            //       "Content-type": "application/json; charset=UTF-8"
+            //     }
+            // }).then(response => {
+            //     return response.json()
+            // })
 
     }
 
