@@ -34,7 +34,8 @@ function DodajPasazera(){
   
     }
 
-    function handleSubmit(){
+    function handleSubmit(event){
+      event.preventDefault();
     
            fetch('https://bd-project.herokuapp.com/pasazer', {
               method: 'POST',
