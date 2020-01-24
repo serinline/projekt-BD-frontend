@@ -102,7 +102,7 @@ function NowaRezerwacja(){
         });
         }
 
-        function componentDidMount(){
+        componentDidMount(){
             fetch(`https://bd-project.herokuapp.com/lot`, {
                 method: "GET",
                 dataType: "JSON",
