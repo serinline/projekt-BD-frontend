@@ -8,6 +8,8 @@ function NowaRezerwacja(){
     const [id_pasazer, setIdPasazer] = useState(0);
     const [id_lot, setIdLot] = useState(0);
     const [miejsce, setMiejsce] = useState('');
+    const [loty, setLoty] = useState([])
+
 
     const [wolneMsc, setWolneMsc] = useState([]);
 
@@ -82,6 +84,24 @@ function NowaRezerwacja(){
         // updateMiejsca(miejsce, id_lot);      
     }
 
+    function getLoty(event){
+        event.preventDefault();
+        fetch(`https://bd-project.herokuapp.com/lot`, {
+            method: "GET",
+            dataType: "JSON",
+            headers: {
+              "Content-Type": "application/json; charset=utf-8",
+            }
+          })
+        .then(res => { 
+            return res.json()
+        }) //result
+        .then(json => {
+            setLoty(json)
+        });
+        }
+
+
     // function updateMiejsca(msc, lt){
     //     console.log(msc, lt);
     //     fetch(`https://bd-project.herokuapp.com/miejsca/${msc}/${lt}`, {
@@ -149,6 +169,11 @@ function NowaRezerwacja(){
                 </form>
                 {/* <ItemListerMiejsca wolneMsc={wolneMsc}/> */}
 
+                <form>
+                      <button className="link-to" name="wszystkie-loty" value="all" onClick={getLoty}>Wszystkie loty</button>
+                  </form>
+                  <ItemListerLot loty={loty}/>
+
 
                 <div className="label2"><button onClick={getDaneSamolot}>Model samolotu</button></div>
                 <ItemListerSamolot samolot={samolot} />
@@ -208,10 +233,6 @@ function NowaRezerwacja(){
 
 const ItemListerIdRezerwacji = props => <h2> {props.id_rez} </h2>;
 
-
-
-
-
 const ItemListerSamolot = props => <div>
 { props.samolot.map(one => (
             <div id="lista-lotow" key={one.id_pracownik}>
@@ -224,5 +245,27 @@ const ItemListerSamolot = props => <div>
 // const ItemListerLoty = props => <div>
 // { <Select name="options2" options={props.options1} /> }
 // </div> 
+
+const ItemListerLot = props =>  <div>
+    { props.loty.map(lot => (
+                <div id="lista-lotow" key={lot.id_lot}>
+                <div className="title0">Nr lotu:  { lot.id_lot }</div>
+                  <div className="label">
+                    <div className="title1">Wylot</div>
+                    <div className = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
+                    <div className = "title2">Data: { lot.wylot } </div>
+                  </div>
+
+                  <div className="label">
+                    <div className="title1">Przylot</div>
+                    <div className = "title2">Lotnisko: { lot.lotnisko_przylot } </div>
+                    <div className = "title2">Data: { lot.przylot } </div>
+                  </div>
+
+              </div>
+    ))}
+    {/* {props.loty.lenght === 0 && <div> Nie znaleziono lotów </div>} */}
+    </div> 
+
 
 export default NowaRezerwacja;
