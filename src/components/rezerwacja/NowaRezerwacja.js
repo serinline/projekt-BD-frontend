@@ -142,9 +142,9 @@ function NowaRezerwacja(){
 
                 <form onSubmit={getMiejsce}>
 
-                <label htmlFor="id_lot">Wprowadź ID wybranego lotu: </label>
+                {/* <label htmlFor="id_lot">Wprowadź ID wybranego lotu: </label>
                     <input id="id_lot" type="text" value={id_lot} autoComplete="off"
-                        onChange={handleIdLotChange}/>
+                        onChange={handleIdLotChange}/> */}
                     {/* <button>Sprawdź wolne miejsca</button> */}
                 </form>
                 {/* <ItemListerMiejsca wolneMsc={wolneMsc}/> */}
@@ -157,6 +157,9 @@ function NowaRezerwacja(){
 
             <div className="label2">
                 <form onSubmit={handleSubmit}>
+                <label htmlFor="id_lot">Wprowadź ID wybranego lotu: </label>
+                    <input id="id_lot" type="text" value={id_lot} autoComplete="off"
+                        onChange={handleIdLotChange}/>
 
                     <label htmlFor="id_pasazer">Wprowadź swoje ID: </label>
                     <input id="id_pasazer" type="text" value={id_pasazer} autoComplete="off"
