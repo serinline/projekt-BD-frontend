@@ -13,7 +13,8 @@ function DodajBagaz(props){
         setWaga(event.target.value);
     }
 
-    function handleSubmit(){
+    function handleSubmit(event){
+        event.preventDefault();
     
            fetch('https://bd-project.herokuapp.com/bagaz', {
               method: 'POST',
@@ -33,7 +34,7 @@ function DodajBagaz(props){
 
 //to test if it works 
             fetch(`https://bd-project.herokuapp.com/rezerwacjaUpdate/${id_rezerwacja}`, {
-                method: 'POST',
+                method: 'PUT',
                 body: JSON.stringify({
                     id_rezerwacja
                 }),
