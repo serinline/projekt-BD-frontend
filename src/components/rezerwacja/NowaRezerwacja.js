@@ -35,6 +35,8 @@ function NowaRezerwacja(){
               id_lot
             }),
           });
+
+        getIdRez();
  
     }
 
@@ -65,6 +67,7 @@ function NowaRezerwacja(){
         .then(json => {
             setIdRez(json);
         });
+        return (<h2> {id_rez} </h2>)
     }
     
     function getDaneSamolot(event){
