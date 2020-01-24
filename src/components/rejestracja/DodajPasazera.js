@@ -89,7 +89,7 @@ function DodajPasazera(){
     )
 }
 
-const ItemListerPasazer = props => <h2> {props.pasazer} </h2>;
+const ItemListerPasazer = props => <h2> Twój identyfikator: {props.pasazer} </h2>;
 
 
 export default DodajPasazera;

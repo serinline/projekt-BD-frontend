@@ -35,6 +35,8 @@ function NowaRezerwacja(){
               id_lot
             }),
           });
+
+          getIdRez();
  
     }
 
@@ -56,8 +58,7 @@ function NowaRezerwacja(){
         }
 
 
-    function getIdRez(event){
-        event.preventDefault();
+    function getIdRez(){
         fetch(`https://bd-project.herokuapp.com/rezerwacja/id`)
         .then(res => {
           console.log(res);
@@ -121,7 +122,7 @@ function NowaRezerwacja(){
                 </form>
 
 
-                <button className="rezerwacja" onClick={getIdRez}>Pobierz ID swojej rezerwacji</button>
+                {/* <button className="rezerwacja" onClick={getIdRez}>Pobierz ID swojej rezerwacji</button> */}
                 <ItemListerIdRezerwacji id_rez={id_rez} />
 
               
@@ -130,7 +131,7 @@ function NowaRezerwacja(){
       )
 }
 
-const ItemListerIdRezerwacji = props => <h2> {props.id_rez} </h2>;
+const ItemListerIdRezerwacji = props => <h2> Numer Twojej rezerwacji: {props.id_rez} </h2>;
 
 const ItemListerSamolot = props => <div>
 { props.samolot.map(one => (
