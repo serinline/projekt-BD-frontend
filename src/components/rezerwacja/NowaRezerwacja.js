@@ -247,26 +247,9 @@ const ItemListerSamolot = props => <div>
 // </div> 
 
 const ItemListerLot = props =>  <div>
-    { props.loty.map(lot => (
                 <select>
-                <option id="lista-lotow" key={lot.id_lot}>
-                <div className="title0">Nr lotu:  { lot.id_lot }</div>
-                  <div className="label">
-                    <div className="title1">Wylot</div>
-                    <div className = "title2">Lotnisko: { lot.lotnisko_wylot } </div>
-                    <div className = "title2">Data: { lot.wylot } </div>
-                  </div>
-
-                  <div className="label">
-                    <div className="title1">Przylot</div>
-                    <div className = "title2">Lotnisko: { lot.lotnisko_przylot } </div>
-                    <div className = "title2">Data: { lot.przylot } </div>
-                    </div>
-                  </option>
-
+                    {props.loty.map((lot) => <option key={lot.id_lot} value={lot.id_lot}>{lot.lotnisko_wylot}</option>)}
               </select>
-    ))}
-    {/* {props.loty.lenght === 0 && <div> Nie znaleziono lotów </div>} */}
     </div> 
 
 
