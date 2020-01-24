@@ -171,7 +171,7 @@ function NowaRezerwacja(){
                 <ItemListerMiejsca wolneMsc={wolneMsc}/> */}
 
                 <form>
-                      <button className="rezerwacja" name="wszystkie-loty" value="all" onClick={getLoty}>Wszystkie loty</button>
+                      <button className="" name="wszystkie-loty" value="all" onClick={getLoty}>Wszystkie loty</button>
                   </form>
                   {/* <ItemListerLot loty={loty}/> */}
                   <select onChange={handleIdLotChange}>
