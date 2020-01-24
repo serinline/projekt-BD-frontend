@@ -23,6 +23,7 @@ function NowaRezerwacja(){
     function handleIdLotChange(event){
         setIdLot(event.target.value);
     }
+
     function handleMiejsceChange(event){
         setMiejsce(event.target.value);
     }
@@ -172,7 +173,11 @@ function NowaRezerwacja(){
                 <form>
                       <button className="link-to" name="wszystkie-loty" value="all" onClick={getLoty}>Wszystkie loty</button>
                   </form>
-                  <ItemListerLot loty={loty}/>
+                  {/* <ItemListerLot loty={loty}/> */}
+                  <select onChange={handleIdLotChange}>
+                    {loty.map((lot) => <option key={lot.id_lot} value={lot.id_lot}> Id: {lot.id_lot} : {lot.lotnisko_wylot} : { lot.wylot } -> {lot.lotnisko_przylot } : { lot.przylot }</option>)}
+                </select>
+
 
 
                 <div className="label2"><button onClick={getDaneSamolot}>Model samolotu</button></div>
