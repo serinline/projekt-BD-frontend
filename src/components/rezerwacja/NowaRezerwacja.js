@@ -178,7 +178,7 @@ function NowaRezerwacja(){
                     {loty.map((lot) => <option key={lot.id_lot} value={lot.id_lot}> Id: {lot.id_lot} : {lot.lotnisko_wylot} : { lot.wylot } -> {lot.lotnisko_przylot } : { lot.przylot }</option>)}
                      </select>
 
-                     <button onClick={getDaneSamolot}>Model samolotu</button></div>
+                     <button onClick={getDaneSamolot}>Model samolotu</button>
                 <ItemListerSamolot samolot={samolot} />
 
             </div>
@@ -212,6 +212,7 @@ function NowaRezerwacja(){
 
               <ItemListerZaloga zaloga={zaloga} /> */}
               
+            </div>
             </div>
       )
 }
