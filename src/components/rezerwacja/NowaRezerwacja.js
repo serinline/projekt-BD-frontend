@@ -160,14 +160,14 @@ function NowaRezerwacja(){
                 <button id='pracownicy-lista' onClick={copyOptionsForAsync}>Wyświetl loty</button>
                 <ItemListerLoty loty={options1}/> */}
 
-                <form onSubmit={getMiejsce}>
+                {/* <form onSubmit={getMiejsce}>
 
-                {/* <label htmlFor="id_lot">Wprowadź ID wybranego lotu: </label>
+                <label htmlFor="id_lot">Wprowadź ID wybranego lotu: </label>
                     <input id="id_lot" type="text" value={id_lot} autoComplete="off"
-                        onChange={handleIdLotChange}/> */}
-                    {/* <button>Sprawdź wolne miejsca</button> */}
+                        onChange={handleIdLotChange}/>
+                    <button>Sprawdź wolne miejsca</button>
                 </form>
-                {/* <ItemListerMiejsca wolneMsc={wolneMsc}/> */}
+                <ItemListerMiejsca wolneMsc={wolneMsc}/> */}
 
                 <form>
                       <button className="link-to" name="wszystkie-loty" value="all" onClick={getLoty}>Wszystkie loty</button>
@@ -182,9 +182,9 @@ function NowaRezerwacja(){
 
             <div className="label2">
                 <form onSubmit={handleSubmit}>
-                <label htmlFor="id_lot">Wprowadź ID wybranego lotu: </label>
+                {/* <label htmlFor="id_lot">Wprowadź ID wybranego lotu: </label>
                     <input id="id_lot" type="text" value={id_lot} autoComplete="off"
-                        onChange={handleIdLotChange}/>
+                        onChange={handleIdLotChange}/> */}
 
                     <label htmlFor="id_pasazer">Wprowadź swoje ID: </label>
                     <input id="id_pasazer" type="text" value={id_pasazer} autoComplete="off"
@@ -247,7 +247,7 @@ const ItemListerSamolot = props => <div>
 // </div> 
 
 const ItemListerLot = props =>  <div>
-                <select>
+                <select onChange={handleIdLotChange}>
                     {props.loty.map((lot) => <option key={lot.id_lot} value={lot.id_lot}> Id: {lot.id_lot} : {lot.lotnisko_wylot} : { lot.wylot } -> {lot.lotnisko_przylot } : { lot.przylot }</option>)}
               </select>
     </div> 
