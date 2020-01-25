@@ -112,9 +112,6 @@ function NowaRezerwacja(){
             <div className="label2">
 
                 <form onSubmit={handleSubmit}>
-                {/* <label htmlFor="id_lot">Wprowadź ID wybranego lotu: </label>
-                    <input id="id_lot" type="text" value={id_lot} autoComplete="off"
-                        onChange={handleIdLotChange}/> */}
 
                     <label htmlFor="id_pasazer">Wprowadź swoje ID: </label>
                     <input id="id_pasazer" type="text" value={id_pasazer} autoComplete="off"
@@ -123,9 +120,7 @@ function NowaRezerwacja(){
                     <button className="rezerwacja">Rezerwuj</button>
                 </form>
 
-
-                {/* <button className="rezerwacja" onClick={getIdRez}>Pobierz ID swojej rezerwacji</button> */}
-                <ItemListerIdRezerwacji id_rez={id_rez++} />
+                <ItemListerIdRezerwacji id_rez={id_rez} />
 
               
                 </div>
@@ -133,7 +128,7 @@ function NowaRezerwacja(){
       )
 }
 
-const ItemListerIdRezerwacji = props => <h2> Numer Twojej rezerwacji: {props.id_rez} </h2>;
+const ItemListerIdRezerwacji = props => <h2> Numer Twojej rezerwacji: {props.id_rez++} </h2>;
 
 const ItemListerSamolot = props => <div>
 { props.samolot.map(one => (
