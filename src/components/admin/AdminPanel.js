@@ -13,10 +13,10 @@ function AdminPanel(){
 
     const [rezerwacje, setRezerwacje] = useState([])
 
+    const [bagaze, setBagaze] = useState([])
+
     function usunPasazera(event){
         event.preventDefault();
-
-
         fetch(`https://bd-project.herokuapp.com/usun/pasazer/${pasazer}`, {
             method: "DELETE",
             dataType: "JSON",
@@ -37,6 +37,7 @@ function AdminPanel(){
     function handleBagazChange(event){
         setBagaz(event.target.value)
     }
+
 
 
     function getPracownikow(event){
@@ -93,6 +94,24 @@ function AdminPanel(){
 
     }
 
+    function getBagaze(event){
+        event.preventDefault();
+        fetch(`https://bd-project.herokuapp.com/bagaze`, {
+        method: "GET",
+        dataType: "JSON",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        }
+      })
+    .then(res => { 
+        return res.json()
+    }) 
+    .then(json => {
+        setBagaze(json)
+    });
+
+    }
+
     function getDaneZaloga(event){
         event.preventDefault();
 
@@ -140,6 +159,9 @@ function AdminPanel(){
                 <button id='pracownicy-lista' onClick={getPasazerow}>Wyświetl wszystkich pasażerów</button>
                 <ItemListerPasazerowie pasazerowie={pasazerowie}/>
 
+                <button id='pracownicy-lista' onClick={getBagaze}>Wyświetl bagaże</button>
+                <ItemListerBagaze bagaze={bagaze}/>
+
                 <button id='pracownicy-lista' onClick={getRezerwacje}>Wyświetl rezerwacje</button>
                 <ItemListerRezerwacje rezerwacje={rezerwacje}/>
 
@@ -176,6 +198,19 @@ const ItemListerPracownicy = props =>  <div>
                     <div className = "title2">Nazwisko: { pracownik.nazwisko } </div>
                     <div className = "title2">Stanowisko: { pracownik.stanowisko } </div>
                     <div className = "title2">Obywatelstwo: { pracownik.obywatelstwo } </div>
+                  </div>
+
+              </div>
+    ))}
+    </div>;
+
+const ItemListerBagaze = props =>  <div>
+    { props.bagaze.map(bagaz => (
+                <div id="lista-pracownikow" key={bagaz.id_bagaz}>
+                  <div className="label">
+                    <div className="title1">ID: { bagaz.id_bagaz }</div>
+                    <div className = "title2">Waga: { bagaz.waga } </div>
+                    <div className = "title2">Rezerwacja: { bagaz.id_rezerwacja } </div>
                   </div>
 
               </div>
