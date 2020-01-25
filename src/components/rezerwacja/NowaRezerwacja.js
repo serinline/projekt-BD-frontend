@@ -14,7 +14,7 @@ function NowaRezerwacja(){
     const [samolot, setSamolot] = useState([])
 
     function handleIdPasazerChange(event){
-        setIdPasazer(event.target.value + 1);
+        setIdPasazer(event.target.value);
     }
     function handleIdLotChange(event){
         setIdLot(event.target.value);
@@ -125,7 +125,7 @@ function NowaRezerwacja(){
 
 
                 {/* <button className="rezerwacja" onClick={getIdRez}>Pobierz ID swojej rezerwacji</button> */}
-                <ItemListerIdRezerwacji id_rez={id_rez} />
+                <ItemListerIdRezerwacji id_rez={id_rez++} />
 
               
                 </div>
