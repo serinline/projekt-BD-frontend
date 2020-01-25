@@ -59,6 +59,7 @@ function NowaRezerwacja(){
 
 
     function getIdRez(){
+        window.location.reload(true);
         fetch(`https://bd-project.herokuapp.com/rezerwacja/id`)
         .then(res => {
           console.log(res);
