@@ -55,6 +55,8 @@ function DodajPasazera(){
         return res.json()}) //result
 
       getDane();
+
+      
     }
 
     
