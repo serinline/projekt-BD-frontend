@@ -32,9 +32,13 @@ function NowaRezerwacja(){
               id_pasazer,
               id_lot
             }),
+          })
+          .then(res => {
+            console.log(res);
+            return res.json()}) 
+          .then(json => {
+            setIdRez(json);
           });
-
-          getIdRez();
  
     }
 
@@ -56,17 +60,17 @@ function NowaRezerwacja(){
         }
 
 
-    function getIdRez(){
-        fetch(`https://bd-project.herokuapp.com/rezerwacja/id`)
-        .then(res => {
-          console.log(res);
-          return res.json()}) 
-        .then(json => {
-            // json = json;
-            // console.log(json);
-            setIdRez(json);
-        });
-    }
+    // function getIdRez(){
+    //     fetch(`https://bd-project.herokuapp.com/rezerwacja/id`)
+    //     .then(res => {
+    //       console.log(res);
+    //       return res.json()}) 
+    //     .then(json => {
+    //         // json = json;
+    //         // console.log(json);
+    //         setIdRez(json);
+    //     });
+    // }
     
     function getDaneSamolot(event){
         event.preventDefault();
