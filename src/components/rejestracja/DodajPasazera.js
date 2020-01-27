@@ -75,11 +75,11 @@ function DodajPasazera(){
               <input id="nazwisko" type="text" value={nazwisko} autoComplete="off"
                   onChange={handleNazwiskoChange}/>
       
-              <label htmlFor="pesel">Pesel:</label>
+              <label htmlFor="pesel">Pesel:(jeśli nie posiadasz, wpisz 0)</label>
               <input id="pesel" type="text" value={pesel} autoComplete="off"
                   onChange={handlePeselChange}/>
 
-              <label htmlFor="obywatelstwo">Obywatelstwo:</label>
+              <label htmlFor="obywatelstwo">Obywatelstwo: (Dwie litery)</label>
               <input id="obywatelstwo" type="text" value={obywatelstwo} autoComplete="off"
                   onChange={handleObywatelstwoChange}/>
       
@@ -93,7 +93,7 @@ function DodajPasazera(){
     )
 }
 
-const ItemListerPasazer = props => <h2> Twój identyfikator: {props.pasazer++} </h2>;
+const ItemListerPasazer = props => <h2> Twój identyfikator: {props.pasazer} </h2>;
 
 
 export default DodajPasazera;

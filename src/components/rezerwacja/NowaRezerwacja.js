@@ -130,7 +130,7 @@ function NowaRezerwacja(){
       )
 }
 
-const ItemListerIdRezerwacji = props => <h2> Numer Twojej rezerwacji: {props.id_rez++} </h2>;
+const ItemListerIdRezerwacji = props => <h2> Numer Twojej rezerwacji: {props.id_rez} </h2>;
 
 const ItemListerSamolot = props => <div>
 { props.samolot.map(one => (
