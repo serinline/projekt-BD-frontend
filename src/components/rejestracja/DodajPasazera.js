@@ -27,7 +27,7 @@ function DodajPasazera(){
       fetch(`https://bd-project.herokuapp.com/pasazer/id`)
       .then(res => {
         console.log(res);
-        return res.json()}) //result
+        return res.json()})
       .then(json => {
           setPasazer(json);
       });
@@ -52,9 +52,12 @@ function DodajPasazera(){
       })
       .then(res => {
         console.log(res);
-        return res.json()}) //result
+        return res.json()}) 
+      .then(json => {
+          setPasazer(json);
+      });
 
-      getDane();
+      //getDane();
 
       
     }

@@ -62,8 +62,8 @@ function NowaRezerwacja(){
           console.log(res);
           return res.json()}) 
         .then(json => {
-            json = json + 1;
-            console.log(json);
+            // json = json;
+            // console.log(json);
             setIdRez(json);
         });
     }
