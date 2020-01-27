@@ -49,7 +49,10 @@ function DodajPasazera(){
           pesel,
           obywatelstwo
         }),
-      });
+      })
+      .then(res => {
+        console.log(res);
+        return res.json()}) //result
 
       getDane();
     }
