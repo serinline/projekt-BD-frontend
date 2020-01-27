@@ -50,6 +50,8 @@ function DodajPasazera(){
           obywatelstwo
         }),
       });
+
+      getDane();
     }
 
     
