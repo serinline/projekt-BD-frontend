@@ -256,7 +256,6 @@ const ItemListerRezerwacje = props => <div>
                     <div className="title1">ID: { rez.id_rezerwacja }</div>
                     <div className = "title2">Id pasażera: { rez.id_pasazer } </div>
                     <div className = "title2">Id lotu: { rez.id_lot } </div>
-                    <div className = "title2">Id bagażu: { rez.id_bagaz } </div>
                   </div>
 
           </div>
