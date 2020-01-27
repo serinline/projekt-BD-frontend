@@ -37,7 +37,7 @@ function DodajPasazera(){
     function handleSubmit(event){
       event.preventDefault();
     
-      var value = fetch('https://bd-project.herokuapp.com/pasazer', {
+      fetch('https://bd-project.herokuapp.com/pasazer', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -50,11 +50,6 @@ function DodajPasazera(){
           obywatelstwo
         }),
       });
-      console.log(value);
-      if (value > 0 ){
-        getDane();
-      } 
-
     }
 
     
