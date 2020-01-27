@@ -37,20 +37,24 @@ function DodajPasazera(){
     function handleSubmit(event){
       event.preventDefault();
     
-           fetch('https://bd-project.herokuapp.com/pasazer', {
-              method: 'POST',
-              headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                imie,
-                nazwisko,
-                pesel,
-                obywatelstwo
-              }),
-            });
-            getDane();
+      var value = fetch('https://bd-project.herokuapp.com/pasazer', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          imie,
+          nazwisko,
+          pesel,
+          obywatelstwo
+        }),
+      });
+      console.log(value);
+      if (value > 0 ){
+        getDane();
+      } 
+
     }
 
     
