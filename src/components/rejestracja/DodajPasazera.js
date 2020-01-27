@@ -22,17 +22,17 @@ function DodajPasazera(){
         setObywatelstwo(event.target.value);
     }
 
-    function getDane(){
+    // function getDane(){
 
-      fetch(`https://bd-project.herokuapp.com/pasazer/id`)
-      .then(res => {
-        console.log(res);
-        return res.json()})
-      .then(json => {
-          setPasazer(json);
-      });
+    //   fetch(`https://bd-project.herokuapp.com/pasazer/id`)
+    //   .then(res => {
+    //     console.log(res);
+    //     return res.json()})
+    //   .then(json => {
+    //       setPasazer(json);
+    //   });
   
-    }
+    // }
 
     function handleSubmit(event){
       event.preventDefault();
@@ -56,9 +56,6 @@ function DodajPasazera(){
       .then(json => {
           setPasazer(json);
       });
-
-      //getDane();
-
       
     }
 
