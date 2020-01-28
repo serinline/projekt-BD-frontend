@@ -209,8 +209,8 @@ const ItemListerBagaze = props =>  <div>
                 <div id="lista-pracownikow" key={bagaz.id_bagaz}>
                   <div className="label">
                     <div className="title1">ID: { bagaz.id_bagaz }</div>
-                    <div className = "title2">Waga: { bagaz.waga } </div>
                     <div className = "title2">Rezerwacja: { bagaz.id_rezerwacja } </div>
+                    <div className = "title2">Waga: { bagaz.waga } </div>
                   </div>
 
               </div>
